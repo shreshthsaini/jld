@@ -1,0 +1,42 @@
+{
+ "full": {
+  "bikes_blur.png": 0.431031,
+  "bikes_downsample_x4.png": 0.432232,
+  "hats_contrast.png": 0.120627,
+  "hats_noise.png": 0.183614,
+  "hats_posterize.png": 0.240504,
+  "parrots_color_shift.png": 0.092184,
+  "parrots_jpeg_q30.png": 0.107143,
+  "parrots_jpeg_q8.png": 0.246233
+ },
+ "fast": {
+  "bikes_blur.png": 0.392046,
+  "bikes_downsample_x4.png": 0.369639,
+  "hats_contrast.png": 0.119382,
+  "hats_noise.png": 0.146967,
+  "hats_posterize.png": 0.176006,
+  "parrots_color_shift.png": 0.091121,
+  "parrots_jpeg_q30.png": 0.098422,
+  "parrots_jpeg_q8.png": 0.213864
+ },
+ "lens": {
+  "bikes_blur.png": 0.393516,
+  "bikes_downsample_x4.png": 0.372723,
+  "hats_contrast.png": 0.121844,
+  "hats_noise.png": 0.154216,
+  "hats_posterize.png": 0.179963,
+  "parrots_color_shift.png": 0.091093,
+  "parrots_jpeg_q30.png": 0.113164,
+  "parrots_jpeg_q8.png": 0.225106
+ },
+ "raw": {
+  "bikes_blur.png": 1.084913,
+  "bikes_downsample_x4.png": 1.140269,
+  "hats_contrast.png": 0.214807,
+  "hats_noise.png": 0.564137,
+  "hats_posterize.png": 0.402216,
+  "parrots_color_shift.png": 0.125403,
+  "parrots_jpeg_q30.png": 0.411788,
+  "parrots_jpeg_q8.png": 0.605805
+ }
+}

@@ -1,0 +1,236 @@
+[
+  {
+    "id": "tid2013-i19",
+    "dataset": "tid2013",
+    "variants": {
+      "A": {
+        "image": "assets/comparisons/tid2013-i19/A.png",
+        "map": "assets/comparisons/tid2013-i19/A-map.png",
+        "label": "chromatic aberrations",
+        "scores": {
+          "human": 5.75676,
+          "perjaclens": 0.12327663600444785,
+          "dists": 0.0833383202552795,
+          "lpips_vgg": 0.1091824471950531,
+          "psnr": 24.912696838378903
+        },
+        "source_image": "i19_23_3.bmp",
+        "source_sha256": "d0ed509f1c1a63c3fa37b5392495c31ba77dde14023939418902a78cff68da82"
+      },
+      "B": {
+        "image": "assets/comparisons/tid2013-i19/B.png",
+        "map": "assets/comparisons/tid2013-i19/B-map.png",
+        "label": "local block-wise distortions",
+        "scores": {
+          "human": 2.88889,
+          "perjaclens": 0.17179977893829343,
+          "dists": 0.0605249404907226,
+          "lpips_vgg": 0.0684730634093284,
+          "psnr": 24.89653587341309
+        },
+        "source_image": "i19_15_1.bmp",
+        "source_sha256": "fb1533bf4b6f385c63022118482df0a63ce3bfc5ade48325d405cf7d2eb87883"
+      }
+    },
+    "selection_rule": "For each dataset, enumerate same-reference pairs of different distortion types with MOS(A)>MOS(B) and absolute PSNR difference below 0.02 dB. Require the macro-named metric to prefer A and both DISTS and LPIPS-VGG to prefer B. Choose maximum MOS gap, then minimum PSNR difference, then reference/A/B paths lexicographically. KADID uses only the held-out test split.",
+    "reference": "assets/comparisons/tid2013-i19/reference.png",
+    "map_max": 0.8580261468887329,
+    "jld_preferred": "A",
+    "human_preferred": "A"
+  },
+  {
+    "id": "kadid10k_test-i09",
+    "dataset": "kadid10k_test",
+    "variants": {
+      "A": {
+        "image": "assets/comparisons/kadid10k_test-i09/A.png",
+        "map": "assets/comparisons/kadid10k_test-i09/A-map.png",
+        "label": "JPEG compression",
+        "scores": {
+          "human": 3.67,
+          "perjaclens": 0.1602440327405929,
+          "dists": 0.1419043540954589,
+          "lpips_vgg": 0.2779057025909424,
+          "psnr": 25.18110656738281
+        },
+        "source_image": "I09_10_03.png",
+        "source_sha256": "5c509cd34f91244eedd0e34643c0192cc5b5f0185d2d2bf102711ba4fcf565cd"
+      },
+      "B": {
+        "image": "assets/comparisons/kadid10k_test-i09/B.png",
+        "map": "assets/comparisons/kadid10k_test-i09/B-map.png",
+        "label": "colour shift",
+        "scores": {
+          "human": 1.47,
+          "perjaclens": 0.2740213721990585,
+          "dists": 0.1342053413391113,
+          "lpips_vgg": 0.171639859676361,
+          "psnr": 25.1630973815918
+        },
+        "source_image": "I09_05_03.png",
+        "source_sha256": "23094d4fdbcba5927da32d9c1af6dc7a28dbb703b32ec3ec3b2f125ff749ede9"
+      }
+    },
+    "selection_rule": "For each dataset, enumerate same-reference pairs of different distortion types with MOS(A)>MOS(B) and absolute PSNR difference below 0.02 dB. Require the macro-named metric to prefer A and both DISTS and LPIPS-VGG to prefer B. Choose maximum MOS gap, then minimum PSNR difference, then reference/A/B paths lexicographically. KADID uses only the held-out test split.",
+    "reference": "assets/comparisons/kadid10k_test-i09/reference.png",
+    "map_max": 0.6001157760620117,
+    "jld_preferred": "A",
+    "human_preferred": "A"
+  },
+  {
+    "id": "tid2013-i04",
+    "dataset": "tid2013",
+    "variants": {
+      "A": {
+        "image": "assets/comparisons/tid2013-i04/A.png",
+        "map": "assets/comparisons/tid2013-i04/A-map.png",
+        "label": "high-frequency noise",
+        "scores": {
+          "human": 5.90244,
+          "perjaclens": 0.0812484249472617,
+          "dists": 0.1388886570930481,
+          "lpips_vgg": 0.2267469316720962,
+          "psnr": 30.00241470336914
+        },
+        "source_image": "i04_05_2.bmp",
+        "source_sha256": "4d607748fc04f6f6a1a8dc1ee532b2ef804eb2310eddebfeef1c4b146414144c"
+      },
+      "B": {
+        "image": "assets/comparisons/tid2013-i04/B.png",
+        "map": "assets/comparisons/tid2013-i04/B-map.png",
+        "label": "non-eccentricity pattern noise",
+        "scores": {
+          "human": 3.60976,
+          "perjaclens": 0.1744407713413238,
+          "dists": 0.0820673704147338,
+          "lpips_vgg": 0.1256573647260666,
+          "psnr": 30.018768310546875
+        },
+        "source_image": "i04_14_5.bmp",
+        "source_sha256": "8599a2a5fde5a1a31ed9f37cef38ac66da16f8ce61fa31a775a044ad43a006b7"
+      }
+    },
+    "selection_rule": "Columns are TID2013 and held-out KADID. First exclude each dataset reference used in fig4_qual. Top row: the next maximum human-score-gap comparison satisfying the fig4 rule (different distortion types, PSNR difference below 0.02 dB, the macro-named metric correct and both baselines wrong). Bottom row: exclude every already used reference and maximise the human-score gap among different distortion types with PSNR difference below 0.5 dB, the macro-named metric wrong and both baselines correct. A always has higher MOS. Resolve ties by lower PSNR gap then reference/A/B paths lexicographically.",
+    "reference": "assets/comparisons/tid2013-i04/reference.png",
+    "map_max": 0.7405216097831726,
+    "jld_preferred": "A",
+    "human_preferred": "A"
+  },
+  {
+    "id": "kadid10k_test-i05",
+    "dataset": "kadid10k_test",
+    "variants": {
+      "A": {
+        "image": "assets/comparisons/kadid10k_test-i05/A.png",
+        "map": "assets/comparisons/kadid10k_test-i05/A-map.png",
+        "label": "colour quantisation",
+        "scores": {
+          "human": 4.27,
+          "perjaclens": 0.1092917993664741,
+          "dists": 0.1225449442863464,
+          "lpips_vgg": 0.166205495595932,
+          "psnr": 26.63197326660156
+        },
+        "source_image": "I05_06_03.png",
+        "source_sha256": "90d5b6768b11fedfa54b178d51ed6aad94f96ad0ea98565de332e9d5d9ac56a9"
+      },
+      "B": {
+        "image": "assets/comparisons/kadid10k_test-i05/B.png",
+        "map": "assets/comparisons/kadid10k_test-i05/B-map.png",
+        "label": "colour blocks",
+        "scores": {
+          "human": 2.1,
+          "perjaclens": 0.16901132464408866,
+          "dists": 0.0672743916511535,
+          "lpips_vgg": 0.049383133649826,
+          "psnr": 26.612024307250977
+        },
+        "source_image": "I05_23_02.png",
+        "source_sha256": "693266899d6473ae123fb4cbc677068513362bec7c59655c96cbc385c953a462"
+      }
+    },
+    "selection_rule": "Columns are TID2013 and held-out KADID. First exclude each dataset reference used in fig4_qual. Top row: the next maximum human-score-gap comparison satisfying the fig4 rule (different distortion types, PSNR difference below 0.02 dB, the macro-named metric correct and both baselines wrong). Bottom row: exclude every already used reference and maximise the human-score gap among different distortion types with PSNR difference below 0.5 dB, the macro-named metric wrong and both baselines correct. A always has higher MOS. Resolve ties by lower PSNR gap then reference/A/B paths lexicographically.",
+    "reference": "assets/comparisons/kadid10k_test-i05/reference.png",
+    "map_max": 1.1634117364883423,
+    "jld_preferred": "A",
+    "human_preferred": "A"
+  },
+  {
+    "id": "tid2013-i05",
+    "dataset": "tid2013",
+    "variants": {
+      "A": {
+        "image": "assets/comparisons/tid2013-i05/A.png",
+        "map": "assets/comparisons/tid2013-i05/A-map.png",
+        "label": "contrast change",
+        "scores": {
+          "human": 6.56098,
+          "perjaclens": 0.1850504130125045,
+          "dists": 0.0417145490646362,
+          "lpips_vgg": 0.0392434000968933,
+          "psnr": 22.120906829833984
+        },
+        "source_image": "i05_17_4.bmp",
+        "source_sha256": "0703acfcb9f8344768f89c1edb4fb9d30b402cff08ec479e593b924de3461471"
+      },
+      "B": {
+        "image": "assets/comparisons/tid2013-i05/B.png",
+        "map": "assets/comparisons/tid2013-i05/B-map.png",
+        "label": "impulse noise",
+        "scores": {
+          "human": 3.31707,
+          "perjaclens": 0.17046257853507985,
+          "dists": 0.1509120464324951,
+          "lpips_vgg": 0.2556583881378174,
+          "psnr": 22.520442962646484
+        },
+        "source_image": "i05_06_4.bmp",
+        "source_sha256": "40312265a615573478087970e56694351ab5361926f0909bf30168a195cd30e0"
+      }
+    },
+    "selection_rule": "Columns are TID2013 and held-out KADID. First exclude each dataset reference used in fig4_qual. Top row: the next maximum human-score-gap comparison satisfying the fig4 rule (different distortion types, PSNR difference below 0.02 dB, the macro-named metric correct and both baselines wrong). Bottom row: exclude every already used reference and maximise the human-score gap among different distortion types with PSNR difference below 0.5 dB, the macro-named metric wrong and both baselines correct. A always has higher MOS. Resolve ties by lower PSNR gap then reference/A/B paths lexicographically.",
+    "reference": "assets/comparisons/tid2013-i05/reference.png",
+    "map_max": 0.455027312040329,
+    "jld_preferred": "B",
+    "human_preferred": "A"
+  },
+  {
+    "id": "kadid10k_test-i04",
+    "dataset": "kadid10k_test",
+    "variants": {
+      "A": {
+        "image": "assets/comparisons/kadid10k_test-i04/A.png",
+        "map": "assets/comparisons/kadid10k_test-i04/A-map.png",
+        "label": "non-eccentricity patch",
+        "scores": {
+          "human": 4.1,
+          "perjaclens": 0.1650355160236358,
+          "dists": 0.0341412425041198,
+          "lpips_vgg": 0.0497990697622299,
+          "psnr": 24.817222595214844
+        },
+        "source_image": "I04_20_03.png",
+        "source_sha256": "3e862d039cc885a4e6a4420089d1f6df6d02673352132eacd3a4618260e01edd"
+      },
+      "B": {
+        "image": "assets/comparisons/kadid10k_test-i04/B.png",
+        "map": "assets/comparisons/kadid10k_test-i04/B-map.png",
+        "label": "colour blocks",
+        "scores": {
+          "human": 1.87,
+          "perjaclens": 0.1548681110143661,
+          "dists": 0.043710172176361,
+          "lpips_vgg": 0.0526889376342296,
+          "psnr": 24.643070220947266
+        },
+        "source_image": "I04_23_03.png",
+        "source_sha256": "41bfe5bccd2d2bd4ec19d8fc892f776508b49a1eb71a41627ba5603af73b8140"
+      }
+    },
+    "selection_rule": "Columns are TID2013 and held-out KADID. First exclude each dataset reference used in fig4_qual. Top row: the next maximum human-score-gap comparison satisfying the fig4 rule (different distortion types, PSNR difference below 0.02 dB, the macro-named metric correct and both baselines wrong). Bottom row: exclude every already used reference and maximise the human-score gap among different distortion types with PSNR difference below 0.5 dB, the macro-named metric wrong and both baselines correct. A always has higher MOS. Resolve ties by lower PSNR gap then reference/A/B paths lexicographically.",
+    "reference": "assets/comparisons/kadid10k_test-i04/reference.png",
+    "map_max": 1.0815869569778442,
+    "jld_preferred": "B",
+    "human_preferred": "A"
+  }
+]

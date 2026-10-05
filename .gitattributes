@@ -1,0 +1,2 @@
+# Keep the archived Matplotlib SVG byte-identical, including path whitespace.
+docs/assets/video-profile.svg whitespace=-blank-at-eol linguist-generated=true

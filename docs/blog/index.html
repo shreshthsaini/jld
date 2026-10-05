@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A perceptual distance from a network that only learned to see · JLD</title>
+<meta name="description" content="How the Jacobian Lens Distance turns a frozen vision encoder's output sensitivity into a perceptual distance, without human labels.">
+<meta property="og:title" content="A perceptual distance from a network that only learned to see">
+<meta property="og:description" content="Measure with early features, weight them by what the encoder's output responds to.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shreshthsaini.github.io/jld/blog/">
+<meta property="og:image" content="https://shreshthsaini.github.io/jld/assets/paper/teaser.png">
+<link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="post">
+<nav class="post-nav"><a href="../">← JLD project page</a></nav>
+
+<header class="post-header">
+  <h1>A perceptual distance from a network that only learned to see</h1>
+  <p class="subtitle">Measure an image change with early features, and weight those features by how much the encoder's output responds to them. On four standard databases the result matches human judgements better than distances trained on them.</p>
+  <div class="post-meta">
+    <p>October 2026 · Shreshth Saini, Balu Adsumilli, Yilin Wang, Neil Birkbeck, Alan C. Bovik</p>
+    <p>Paper: <a href="../downloads/paper.pdf">PDF</a> · Code: <a href="https://github.com/shreshthsaini/jld">github.com/shreshthsaini/jld</a> · Webpage: <a href="../">project page</a></p>
+  </div>
+</header>
+
+<article>
+<div class="summary">
+  <p><b>Thesis.</b> A frozen self-supervised encoder already contains a perceptual distance. It takes one matrix to read it out, and that matrix needs no human labels.</p>
+  <p><b>Main technical point.</b> Early patch features see every local change but weight all directions alike. The encoder's output Jacobian tells us which of those directions matter. Keeping the top 64 of 384 raises agreement with human scores on TID2013 from 0.784 to 0.850.</p>
+  <p><b>Practical implication.</b> JLD reaches a mean Spearman correlation of 0.926 on four standard databases, above LPIPS, DISTS, PieAPP and DreamSim, and holds its accuracy when image resolution doubles. The fit takes 35 seconds on 100 unlabelled images.</p>
+</div>
+
+<h2>The problem</h2>
+<p>Every codec, every restoration network and every image generator needs a number that says how different two images look to a person. The oldest answer is pixel error. PSNR is cheap and differentiable, and it treats a change to any pixel like a change to any other. People do not.</p>
+<figure class="wide">
+  <a href="../assets/paper/teaser.webp"><img src="../assets/paper/teaser.webp" width="2000" height="1184" alt="The JLD pipeline, and five distortions of one TID2013 image at nearly equal PSNR with their human scores, per-patch maps, and the rank each measure assigns."></a>
+  <figcaption>Five TID2013 distortions of one image, all between 26.8 and 27.2 dB. Human scores run from 5.58 to 2.64. The table at the bottom gives the rank each measure assigns; only JLD reproduces the human order. The top row is the whole method.</figcaption>
+</figure>
+<p>Across every pair of TID2013 images with equal PSNR, PSNR picks the one people prefer 51.1% of the time, which is a coin flip.</p>
+<p>The standard fix is to compare images in the feature space of a pretrained network and then fit that comparison to human ratings. LPIPS learns a weight per channel from human choices. DISTS fits weights on feature statistics. DreamSim fine-tunes the encoder itself on human triplets. These work, but the fit ties the distance to the data and the resolution it was fitted on. Rescore TID2013 at 512 pixels instead of 256 and DISTS falls from 0.815 to 0.717 Spearman correlation with human scores. LPIPS-VGG falls from 0.757 to 0.661. The ratings are the same. Only the pixel grid changed.</p>
+<p>So we asked a narrower question. Does a network that has only learned to see, with no human quality label anywhere in its training, already contain a useful perceptual distance?</p>
+
+<h2>Two layers, two halves of the answer</h2>
+<p>We looked inside a frozen DINOv2-S, a 12-block vision transformer trained by self-supervision. No single depth gives a good distance, and the two ends fail for opposite reasons.</p>
+<p>Patch tokens after the first block are local. Each one has looked at its own 14 × 14 patch and interacted once with its neighbours, so a distortion anywhere in the image moves some token. But a token has 384 dimensions, and plain Euclidean distance counts movement along all of them equally. Many of those directions barely affect anything the network computes later. Raw block-1 distance reaches 0.784 on TID2013.</p>
+<p>The output of the encoder has the opposite problem. It has decided what matters, and in doing so it has pooled away the spatial detail that blur, blocking and noise act on. Distance between output tokens reaches 0.742.</p>
+<p>One end has the locality and the other has the weighting. JLD takes the features from block 1 and the weights from the output. The object that connects a layer to the output is the Jacobian.</p>
+
+<h2>The Jacobian lens</h2>
+<p>Write \(\mathbf h_t\) for the block-1 token at patch \(t\) and \(\mathbf z\) for the encoder's final class token. The Jacobian \(J_t=\partial\mathbf z/\partial\mathbf h_t\) answers a simple question: if we nudge this one patch token by \(\delta\), how far does the output move? To first order, by \(J_t\delta\). Square that and average over natural images and patch positions:</p>
+<div class="equation">\[
+  \mathbf M=\mathbb E_x\Big[\frac1N\sum_{t=1}^N J_t(x)^{\top}J_t(x)\Big].
+\]</div>
+<p>\(\mathbf M\) is a 384 × 384 matrix, and \(\delta^{\top}\mathbf M\,\delta\) is the expected squared output change caused by moving a patch by \(\delta\). Its eigenvectors sort the feature directions by how strongly the output responds to them. A push along the first eigenvector changes the output the most. A push along the last leaves it almost unchanged.</p>
+<p>For DINOv2-S this spectrum is steep. The top 64 eigenvectors hold 76.5% of the trace. We keep those 64 as the columns of a matrix \(\mathbf U\) and call it the Jacobian lens. It is one fixed linear projection, shared by every image, every patch position and every resolution.</p>
+<figure class="wide">
+  <a href="../assets/paper/lens.webp"><img loading="lazy" src="../assets/paper/lens.webp" width="2000" height="517" alt="Left: the fitting procedure. Middle: a sketch of a feature change split into the part the lens retains. Right: a scatter plot showing lens displacement tracks the encoder output change better than raw displacement."></a>
+  <figcaption>Left, the fit. Middle, what the projection does to one feature change. Right, a check on 153 perturbations at 40 dB: lens displacement tracks the change in the encoder output (ρ = 0.643), raw block-1 displacement hardly does (ρ = 0.147).</figcaption>
+</figure>
+
+<h2>Fitting it in 35 seconds</h2>
+<p>We never form a Jacobian. Draw a random Gaussian vector \(v\), take the scalar \(v^{\top}\mathbf z\), and backpropagate once. The gradient that lands on each patch token is \(g_t=J_t^{\top}v\), and averaging \(g_tg_t^{\top}\) over probes gives \(J_t^{\top}J_t\) in expectation. One backward pass yields an estimate at every patch at once.</p>
+<p>The shipped lens uses 100 unlabelled DIV2K images, four 224 × 224 crops from each, and eight probes per crop. That is 35 seconds on one A100. There are no image pairs, no distortions and no ratings in the fit. Refitting with fresh crops and probes recovers the same subspace, with an overlap of 0.962.</p>
+<p>Human data enters in one place, and we want to be exact about it. We used CSIQ and a development split of KADID-10k to choose among 245 configurations: which block, how many directions, how to weight the global term. TID2013 informed the chroma pre-filter. LIVE, the KADID-10k test references and PIPAL were held out.</p>
+
+<h2>The distance</h2>
+<p>With the lens in hand, the distance has three parts. A fixed pre-filter \(R\) blurs the two chroma channels with a 2-pixel Gaussian and leaves luminance alone, because human vision resolves colour more coarsely than brightness. Then</p>
+<div class="equation">\[
+  \begin{aligned}
+  D(x,y)={}&\Big[\frac1N\sum_{t=1}^N
+  \big\|\mathbf U^{\top}\big(\mathbf h_t(Rx)-\mathbf h_t(Ry)\big)\big\|^2\Big]^{1/2}\\
+  &+\tfrac12\big[1-\cos\big(\mathbf z(Rx),\mathbf z(Ry)\big)\big].
+  \end{aligned}
+\]</div>
+<p>The first term is the lens term: the root mean square, over patches, of the token change as seen through the lens. Its per-patch values make a map that shows where the distance comes from. The second is a small cosine term on the output. It catches whole-image changes such as a global colour shift, which are spread too thinly over patches to register in the first term.</p>
+
+<h2>What the lens throws away</h2>
+<p>The clearest way to see what the lens does is to split each token's movement into the part it keeps and the part it discards. A change with no preferred direction would keep 64/384, or 16.7%, of its energy.</p>
+<figure class="wide">
+  <a href="../assets/paper/slices.webp"><img loading="lazy" src="../assets/paper/slices.webp" width="1801" height="655" alt="Per-patch scatter of kept against discarded block-1 displacement for JPEG, Gaussian blur and colour noise at three distortion levels of one TID2013 image."></a>
+  <figcaption>Three distortions of one TID2013 image at levels 1, 3 and 5. Each point is a patch: horizontal is the displacement the lens keeps, vertical is what it discards. Colour noise moves tokens a long way, mostly upward.</figcaption>
+</figure>
+<p>Take JPEG and colour noise at the strongest level on this image. Their PSNR is nearly identical, 21.6 and 21.3 dB. People rate the JPEG image 1.66 and the noisy one 4.47. The lens keeps 14.3% of the JPEG displacement and 6.4% of the noise displacement, so JLD comes out four times larger for JPEG (0.516 against 0.129), which is the human verdict. Colour noise moves the tokens plenty, but along directions the output ignores. JPEG block edges move them along directions the output uses.</p>
+<p>Over all 24 distortion types the lens keeps a median of 10.6% of the displacement energy.</p>
+<p>Because the lens is a fixed linear map, the lens term is a true pseudometric and has a local form we can write down: near an image it is a quadratic form in pixel space whose iso-distance contours are ellipses. We checked those ellipses against measured contours on real images, and the radii agree to within 9 to 11%. Around one image the contours are 2.33 times longer along chroma than along blur, so a blur costs far more distance than a colour change of equal pixel energy.</p>
+
+<h2>Against LPIPS, DISTS and DreamSim</h2>
+<p>We evaluated 17 full-reference distances under one protocol. A few rows from the main table:</p>
+<div class="tablewrap">
+<table class="plain">
+  <thead><tr><th>Distance</th><th>Where the weighting comes from</th><th class="num">Mean SRCC</th><th class="num">ms per pair</th></tr></thead>
+  <tbody>
+    <tr><td>PSNR</td><td>None</td><td class="num">0.760</td><td class="num">1.4</td></tr>
+    <tr><td>LPIPS-VGG</td><td>Channel weights learned from human choices</td><td class="num">0.802</td><td class="num">10.9</td></tr>
+    <tr><td>DreamSim</td><td>Encoder fine-tuned on human triplets</td><td class="num">0.871</td><td class="num">51.3</td></tr>
+    <tr><td>DISTS</td><td>Weights on feature statistics, fitted to human scores</td><td class="num">0.900</td><td class="num">9.9</td></tr>
+    <tr><td>VSI</td><td>Hand-built saliency and gradient model</td><td class="num">0.915</td><td class="num">9.9</td></tr>
+    <tr class="ours"><td>JLD-fast</td><td>The encoder's own output sensitivity</td><td class="num">0.911</td><td class="num">2.5</td></tr>
+    <tr class="ours"><td>JLD</td><td>The encoder's own output sensitivity</td><td class="num">0.926</td><td class="num">12.2</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note">Mean Spearman correlation with human ratings over TID2013, CSIQ, LIVE and KADID-10k test. Times are on an A100 at 512 × 384.</p>
+<p>JLD has the highest mean of the 17 and beats every learned deep distance on each of the four databases.</p>
+<p>The ablation says where the gain comes from. All 384 raw directions give 0.772. So do 64 random directions. 64 PCA directions give 0.851, and the 64 lens directions give 0.905. All three subsets have 64 directions, so the gain comes from which ones are kept. The chroma filter and the output term add the rest.</p>
+<figure class="wide">
+  <a href="../assets/paper/robust.webp"><img loading="lazy" src="../assets/paper/robust.webp" width="2200" height="648" alt="SRCC against resolution on TID2013 and CSIQ, mean SRCC against time per pair, and video SRCC on two databases."></a>
+  <figcaption>(a, b) Correlation with human scores as the short side grows from 256 pixels to native size. (c) Accuracy against time per pair. (d) Video.</figcaption>
+</figure>
+<p>The resolution result is the one we care about most. From 256 to 512 pixels, the lens term reads 0.850, 0.860, 0.845 on TID2013. The same block-1 features without the lens fall from 0.784 to 0.656.</p>
+<p>JLD-fast stops the encoder after block 1 and drops the output term. It keeps a mean of 0.911 at 2.5 ms per pair, 4.3 times faster than LPIPS-VGG. Only PSNR is faster.</p>
+<p>The construction also carries to video by swapping the encoder. A 16-direction lens on block 2 of a frozen VideoMAE-Base, fitted on 50 unlabelled clips, reaches 0.786 on Waterloo IVC 4K, where VMAF reaches 0.611. And it is not special to DINOv2: fitting a lens to each of 14 frozen encoders, including CLIP and VGG16, improved on raw features in all 14.</p>
+
+<h2>Honest edges</h2>
+<ul>
+  <li>JLD is weaker on the outputs of restoration networks and GANs. It reaches 0.624 on PIPAL, above LPIPS-VGG and every classical measure, but below DISTS (0.704) and DreamSim (0.759).</li>
+  <li>Global contrast changes are a weak point: 0.378 on that TID2013 category.</li>
+  <li>The lens term cannot see the 320 directions it discards. An optimizer handed JLD as a loss can hide errors there, so training against it needs care. The paper suggests closing that null space with the full matrix \(\mathbf M\) as future work.</li>
+  <li>The output term breaks the triangle inequality, rarely: at most 107 triplets per million, by at most 3.6%. If you need a strict pseudometric, use the lens term alone.</li>
+  <li>Full JLD at 12.2 ms is slower than DISTS. The speed claim belongs to JLD-fast.</li>
+  <li>On held-out video (AVT-VQDB-UHD-1) JLD-video reaches 0.912 and VMAF 0.932. VMAF is trained on human video scores and still leads there.</li>
+  <li>Inputs must be spatially aligned.</li>
+</ul>
+
+<h2>How to use it</h2>
+<pre><code>from jld import JLD
+
+metric = JLD.pretrained("full")                       # or "fast"
+distance = metric("reference.png", "distorted.png")   # lower means more similar</code></pre>
+<p>Clone <a href="https://github.com/shreshthsaini/jld">the repository</a> and run <code>uv sync</code>. The fitted lens ships inside the package and the DINOv2-S weights download on first use. A few things worth knowing:</p>
+<ul>
+  <li>Start with <code>"fast"</code> if you are scoring many pairs. It gives up 0.015 of mean correlation and takes 2.5 ms per pair instead of 12.2.</li>
+  <li><code>metric.map(ref, dist)</code> returns the per-patch lens map, which is the first thing to look at when a score surprises you. The <a href="../#examples">project page</a> has six such maps, including two cases JLD gets wrong.</li>
+  <li><code>metric.distance_tensor(ref, dist)</code> is differentiable. Read the null-space caveat above before using it as a loss.</li>
+  <li><code>fit_lens.py</code> fits a lens to another encoder or another image domain from a folder of unlabelled images.</li>
+</ul>
+
+<h2>Citation</h2>
+<div class="bibtex"><pre><code>@article{saini2026jld,
+  title={JLD: Perceptual Distance through a Jacobian Lens},
+  author={Saini, Shreshth and Adsumilli, Balu and Wang, Yilin and Birkbeck, Neil and Bovik, Alan C.},
+  journal={arXiv preprint},
+  year={2026}
+}</code></pre></div>
+</article>
+
+<footer>
+  <p><a href="../">JLD project page</a> · <a href="../downloads/paper.pdf">Paper (PDF)</a> · <a href="https://github.com/shreshthsaini/jld">Code</a></p>
+</footer>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</body>
+</html>

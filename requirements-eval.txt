@@ -1,0 +1,6 @@
+# For scripts/evaluate.py, the baselines in scripts/benchmark.py, and the tests.
+-r requirements.txt
+pandas>=2.0
+scipy>=1.10
+pyiqa>=0.1.13
+pytest>=7

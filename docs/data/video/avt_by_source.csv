@@ -1,0 +1,17 @@
+source,scene,method,videos,eligible_pairs,correct,accuracy,srcc
+bigbuck_bunny_8bit,Animation,pixel_rmse,30,324,314,0.9691358024691358,0.9254067353517669
+bigbuck_bunny_8bit,Animation,raw_features,30,324,315,0.9722222222222222,0.9280787470996547
+bigbuck_bunny_8bit,Animation,lpips_alex,30,324,315,0.9722222222222222,0.9265200735800535
+bigbuck_bunny_8bit,Animation,jld_spatial,30,324,312,0.9629629629629629,0.9265200735800535
+cutting_orange_tuil,Cutting orange,pixel_rmse,30,255,254,0.996078431372549,0.960160344403027
+cutting_orange_tuil,Cutting orange,raw_features,30,255,254,0.996078431372549,0.9243268220458439
+cutting_orange_tuil,Cutting orange,lpips_alex,30,255,253,0.9921568627450981,0.9657245559491734
+cutting_orange_tuil,Cutting orange,jld_spatial,30,255,253,0.9921568627450981,0.9692856513387073
+vegetables_tuil,Vegetables,pixel_rmse,30,250,245,0.98,0.9152015151101639
+vegetables_tuil,Vegetables,raw_features,30,250,247,0.988,0.8802582666003643
+vegetables_tuil,Vegetables,lpips_alex,30,250,248,0.992,0.9350101082144452
+vegetables_tuil,Vegetables,jld_spatial,30,250,248,0.992,0.9365680874473662
+water_netflix,Water,pixel_rmse,30,331,331,1.0,0.982530376318664
+water_netflix,Water,raw_features,30,331,331,1.0,0.9816402015722826
+water_netflix,Water,lpips_alex,30,331,326,0.9848942598187311,0.9589407455395522
+water_netflix,Water,jld_spatial,30,331,331,1.0,0.9878714247969534

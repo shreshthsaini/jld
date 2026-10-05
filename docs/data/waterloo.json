@@ -1,0 +1,78 @@
+[
+  {
+    "id": "14",
+    "label": "Railway",
+    "scores": [
+      {
+        "lane": "A",
+        "mos": 85.62,
+        "lens_distance": 2.29745814647471,
+        "vmaf": 57.883897
+      },
+      {
+        "lane": "B",
+        "mos": 26.16,
+        "lens_distance": 4.261681225241712,
+        "vmaf": 59.29094
+      }
+    ],
+    "selection_rule": "Preserved v13 example: largest MOS reversal per distinct source where lens agrees and VMAF reverses."
+  },
+  {
+    "id": "08",
+    "label": "Football",
+    "scores": [
+      {
+        "lane": "A",
+        "mos": 77.35,
+        "lens_distance": 3.873523215406876,
+        "vmaf": 43.260555
+      },
+      {
+        "lane": "B",
+        "mos": 19.73,
+        "lens_distance": 7.789758496195285,
+        "vmaf": 45.053263
+      }
+    ],
+    "selection_rule": "Preserved v13 example: largest MOS reversal per distinct source where lens agrees and VMAF reverses."
+  },
+  {
+    "id": "16",
+    "label": "Dance",
+    "scores": [
+      {
+        "lane": "A",
+        "mos": 78.02,
+        "lens_distance": 3.380661930553204,
+        "vmaf": 60.630977
+      },
+      {
+        "lane": "B",
+        "mos": 23.27,
+        "lens_distance": 5.973954513091839,
+        "vmaf": 60.682214
+      }
+    ],
+    "selection_rule": "Additional agreement: largest positive MOS gap among remaining sources with the stated metric ordering; ties break by A then B source path."
+  },
+  {
+    "id": "11",
+    "label": "Game scene",
+    "scores": [
+      {
+        "lane": "A",
+        "mos": 58.42,
+        "lens_distance": 4.815775140777205,
+        "vmaf": 59.615028
+      },
+      {
+        "lane": "B",
+        "mos": 43.47,
+        "lens_distance": 4.790580446716685,
+        "vmaf": 54.63287
+      }
+    ],
+    "selection_rule": "Additional failure: largest positive MOS gap among remaining sources with the stated metric ordering; ties break by A then B source path."
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "dataset": "AVT-VQDB-UHD-1 public test-1 subset",
+  "videos": 120,
+  "sources": {
+    "bigbuck_bunny_8bit": "Animation",
+    "cutting_orange_tuil": "Cutting orange",
+    "vegetables_tuil": "Vegetables",
+    "water_netflix": "Water"
+  },
+  "selection": "All120 public clips; all30 variants of all4 publicly available sources. No metric-based subset selection.",
+  "sampling": {
+    "bigbuck_bunny_8bit": [
+      0,
+      54,
+      109,
+      163,
+      218,
+      272,
+      327,
+      381,
+      436,
+      490,
+      545,
+      599
+    ],
+    "cutting_orange_tuil": [
+      0,
+      54,
+      109,
+      163,
+      218,
+      272,
+      327,
+      381,
+      436,
+      490,
+      545,
+      599
+    ],
+    "vegetables_tuil": [
+      0,
+      54,
+      109,
+      163,
+      218,
+      272,
+      327,
+      381,
+      436,
+      490,
+      545,
+      599
+    ],
+    "water_netflix": [
+      0,
+      54,
+      109,
+      163,
+      217,
+      272,
+      326,
+      381,
+      435,
+      489,
+      544,
+      598
+    ]
+  },
+  "input": "Full field of view; bicubic common3840x2160 canvas then Lanczos448x252 RGB; same input frames for all metrics.",
+  "alignment": "Paired decoded-frame indices at matching frame rate, ignoring container timestamp origin. No optical flow or content alignment.",
+  "model": "Unchanged DINOv2-S/14 block1, CLS-target lens64, sigma2 chroma preprocessing; spatial image JLD only, no CLS output term or temporal encoder.",
+  "raw_baseline": "Same block and chroma preprocessing as JLD; omit projection only.",
+  "pooling": "RMS over patches and sampled frames for pixel, raw and JLD; mean frame LPIPS AlexNet.",
+  "labels": "Unmodified laboratory MOS and CI from metadata/test_1_mos_ci.csv; larger MOS better.",
+  "pair_rule": "All within-source pairs with nonoverlapping published MOS+-CI intervals; ties from a metric count as incorrect.",
+  "visual_rule": "Per source, closest pixel PSNR among eligible pairs with MOS gap at least0.75; break ties by IDs. No raw,LPIPS or JLD score used.",
+  "limitations": "Four source scenes only; pair observations share videos and are dependent; no statistical significance claim. Resizing and sparse frame sampling differ from subjective display conditions. No regional human ratings."
+}

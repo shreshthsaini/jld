@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "JLD: Perceptual Distance through a Jacobian Lens"
+type: software
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/shreshthsaini/jld"
+url: "https://shreshthsaini.github.io/jld/"
+authors:
+  - family-names: Saini
+    given-names: Shreshth
+  - family-names: Adsumilli
+    given-names: Balu
+  - family-names: Wang
+    given-names: Yilin
+  - family-names: Birkbeck
+    given-names: Neil
+  - family-names: Bovik
+    given-names: Alan C.
+keywords:
+  - perceptual distance
+  - image quality assessment
+  - full-reference metric
+  - DINOv2
+preferred-citation:
+  type: article
+  title: "JLD: Perceptual Distance through a Jacobian Lens"
+  authors:
+    - family-names: Saini
+      given-names: Shreshth
+    - family-names: Adsumilli
+      given-names: Balu
+    - family-names: Wang
+      given-names: Yilin
+    - family-names: Birkbeck
+      given-names: Neil
+    - family-names: Bovik
+      given-names: Alan C.
+  journal: "arXiv preprint"
+  year: 2026

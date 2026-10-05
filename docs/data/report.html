@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JLD · Data and release report</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../assets/logo.svg">
+</head>
+<body>
+<main class="report">
+  <a href="../">← JLD project page</a>
+  <p class="eyebrow">Research release · 27 September 2026</p>
+  <h1>Data and release report</h1>
+  <p>This release collects the preprint, the image-JLD implementation,
+  fitted lens and selected recorded image and video results. It adds a browser
+  presentation without rerunning metric inference or changing measured scores.</p>
+
+  <h2>What you can download</h2>
+  <table>
+    <thead><tr><th>Record</th><th>Scope</th></tr></thead>
+    <tbody>
+      <tr><td><a href="../downloads/paper.pdf">Paper PDF</a></td><td>Preprint, 34 pages</td></tr>
+      <tr><td><a href="../downloads/data-records.zip">Data records ZIP</a></td><td>JSON and CSV evidence, selection rules and reports</td></tr>
+      <tr><td><a href="comparisons.json">Image comparison summary</a></td><td>Six cases, twelve distortions, JLD, DISTS, LPIPS-VGG, PSNR and MOS</td></tr>
+      <tr><td><a href="fig4_qual_numbers.json">Main qualitative records</a> / <a href="fig9_gallery_numbers.json">gallery records</a></td><td>Full local map arrays, source hashes and selection criteria</td></tr>
+      <tr><td><a href="table_main_v2.csv">Image benchmark table</a></td><td>Recorded dataset correlations, including compared baselines</td></tr>
+      <tr><td><a href="cost.csv">Measured runtime table</a></td><td>Original hardware/protocol-dependent measurements</td></tr>
+      <tr><td><a href="scorecard_resolution.csv">Resolution study</a></td><td>Recorded per-resolution evaluations</td></tr>
+      <tr><td><a href="video2_summary.csv">Video study</a></td><td>Recorded aggregate comparisons</td></tr>
+      <tr><td><a href="waterloo.json">Waterloo displayed scores</a></td><td>Four VideoMAE comparison pairs</td></tr>
+      <tr><td><a href="avt.json">AVT displayed scores</a></td><td>Four separate framewise image-JLD pairs</td></tr>
+      <tr><td><a href="video-maps.json">Video map explorer</a></td><td>Four scenes, twelve displayed frames per scene, map scales, timestamps, source-array hashes and movie provenance</td></tr>
+      <tr><td><a href="video-profile.json">Paper video profile</a></td><td>Two 200-frame distance curves and original high/low-frame figure evidence</td></tr>
+      <tr><td><a href="example-scores.json">Demo distances</a></td><td>Eight Kodak pairs, four metric variants</td></tr>
+      <tr><td><a href="manifest.json">SHA-256 manifest</a></td><td>All published site assets except the manifest itself</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Image selection and maps</h2>
+  <p>The first two cases maximize human MOS gaps among same-reference comparisons
+  with PSNR differences below 0.02 dB, where JLD agrees with MOS and DISTS and
+  LPIPS-VGG reverse it. The gallery adds two agreements and two reversals using
+  its archived exclusion and PSNR rules. A has higher MOS in all six cases.
+  KADID examples use the held-out reference split. These are selected
+  demonstrations, not a random sample or an accuracy estimate.</p>
+  <p>All 18 original source image files were matched to their archived SHA-256
+  values before the recorded 504 × 378 center crops were exported. Map values
+  come directly from the recorded 27 × 36 local displacement arrays. They use
+  nearest-neighbor rendering and a shared viridis scale from zero to the
+  largest value within each pair. The full scalar metric includes the global
+  CLS term; the spatial maps do not. Source paths in exported JSON use portable
+  descriptive roots.</p>
+
+  <h2>Video protocols</h2>
+  <p>The four Waterloo examples use the VideoMAE-B/K400 block-2, 16-dimensional
+  temporal lens. Human MOS favors A in all four. The lens agrees for railway,
+  football and dance; it reverses the game example, where VMAF agrees. These
+  clips were chosen for metric disagreements. The full source identities,
+  recorded score rows and display frames are in the
+  <a href="video/waterloo_figure_evidence.json">Waterloo evidence record</a>.</p>
+  <p>The four AVT examples belong to a separate framewise image-JLD pilot with
+  no temporal encoder and no global term. Twelve 448 × 252 frames score each
+  complete clip; human ratings were collected at 4K. The new map movies contain
+  synchronized images and actual recorded local response maps. The original
+  comparison movies contain images and score cards. The orange example is
+  a shared failure of the compared measures. The
+  <a href="video/avt_protocol.json">AVT protocol</a> and
+  <a href="video/avt_selected_pairs.json">selection records</a> specify the study.</p>
+  <p>The eight original comparison MP4 files retain the exact hashes in the
+  supplement manifest. The four additional map MP4s are copied unchanged from
+  the research archive; browser-compatible WebM derivatives are supplied too.
+  The excerpts are display
+  media, not the complete evaluated sequences. See the
+  <a href="VIDEO_README.md">video README</a> and
+  <a href="video_manifest.json">video manifest</a>.</p>
+  <p>The frame explorer uses twelve evenly spaced frames from each 90-frame map
+  movie. Reference and distorted panels are lossless crops of the decoded
+  display movie. Maps are nearest-neighbor renderings of the square roots of
+  the archived squared-displacement arrays, with a single linear magma scale
+  from zero to the absolute maximum over A, B and all 90 display frames.
+  Nothing is clipped. Timestamps come from the original encoding rate and
+  source-frame indices. The original arrays and their hash receipts are in
+  <code>video-map-arrays/</code>. Clip scores pool twelve separately sampled
+  frames; displayed frames can have a different ordering.</p>
+  <p>The paper's separate full-1080p profile scores every third frame of two
+  ten-second Big Buck Bunny encodes. The unchanged paper figure shows local
+  maps at the highest and lowest image-JLD frames. Its overlays share a
+  99.5th-percentile display limit. That figure's display normalization and
+  full-image distance curves differ from the spatial pilot above; see the
+  <a href="video-profile.json">original profile measurements</a>.</p>
+  <p>Direct media:
+    <a href="../assets/videos/waterloo-14.mp4">railway</a>,
+    <a href="../assets/videos/waterloo-08.mp4">football</a>,
+    <a href="../assets/videos/waterloo-16.mp4">dance</a>,
+    <a href="../assets/videos/waterloo-11.mp4">game</a>,
+    <a href="../assets/videos/avt-bigbuck_bunny_8bit.mp4">animation</a>,
+    <a href="../assets/videos/avt-cutting_orange_tuil.mp4">orange</a>,
+    <a href="../assets/videos/avt-vegetables_tuil.mp4">vegetables</a>,
+    <a href="../assets/videos/avt-water_netflix.mp4">water</a>.
+  </p>
+
+  <h2>Verification and scope</h2>
+  <p>The release check validates local page links, published asset hashes,
+  all eight video hashes against the archived supplement manifest, image
+  dimensions, score-table identity and the bundled fitted-lens hash. The
+  new video maps also pass pixel-exact checks against their archived arrays;
+  all four map WebMs decode and play in Chromium. The
+  Python implementation and its original recorded demo scores are carried
+  forward from the tested release package. Model inference was not rerun
+  for the website. Current lightweight checks do not establish fresh
+  end-to-end benchmark reproduction.</p>
+  <p>The compact package implements image JLD. The temporal-video pipeline and
+  bulk benchmark datasets are not included. The paper reports selected
+  negative controls and limits of transfer. The lens term is a pseudometric;
+  the complete score need not satisfy the triangle inequality. Runtime values
+  depend on the reported hardware and evaluation protocol.</p>
+
+  <h2 id="credits">Credits and reuse</h2>
+  <p>The code's MIT grant applies to the implementation. It does not grant
+  rights to third-party benchmark media, model weights or the manuscript.
+  Dataset and source-content terms continue to apply.</p>
+  <ul>
+    <li><a href="https://database.mmsp-kn.de/kadid-10k-database.html">KADID-10k</a>:
+    Hanhe Lin, Vlad Hosu and Dietmar Saupe, QoMEX 2019. The official dataset
+    is freely available to the research community and requests citation.</li>
+    <li><a href="https://www.ponomarenko.info/tid2013.htm">TID2013</a>:
+    Nikolay Ponomarenko and collaborators, 2013. Refer to the dataset's
+    official documentation and publication when using its images or ratings.</li>
+    <li><a href="https://r0k.us/graphics/kodak/">Kodak Lossless True Color Image Suite</a>:
+    Eastman Kodak images hosted by Rich Franzen. This release uses kodim23,
+    kodim03 and kodim05. The mirror describes its understanding of unrestricted
+    use; this release does not independently grant image rights.</li>
+    <li><a href="https://ivc.uwaterloo.ca/database/Waterloo_IVC_4K/">Waterloo IVC 4K</a>:
+    compression-video database. Source-content credits and dataset terms remain
+    with the original providers.</li>
+    <li><a href="https://github.com/Telecommunication-Telemedia-Assessment/AVT-VQDB-UHD-1">AVT-VQDB-UHD-1</a>:
+    Rao and collaborators, IEEE ISM 2019. Animation source: Big Buck Bunny,
+    Blender Foundation. Other source identities are preserved in the AVT manifest.</li>
+    <li><a href="https://github.com/facebookresearch/dinov2">DINOv2</a>:
+    frozen encoder; cite its paper and follow the upstream model terms.</li>
+    <li>LPIPS: Zhang and collaborators, CVPR 2018. DISTS: Ding and collaborators,
+    IEEE TPAMI. Cite these methods when reporting their measurements.</li>
+  </ul>
+  <p>The project page links to the preprint PDF. An arXiv identifier has not
+  been assigned yet.</p>
+</main>
+</body>
+</html>

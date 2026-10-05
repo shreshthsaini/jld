@@ -1,0 +1,7 @@
+# Core dependencies of the jld package (same as pyproject.toml).
+torch>=2.1
+torchvision>=0.16
+timm>=1.0
+numpy>=1.24
+pillow>=10.0
+huggingface_hub>=0.20

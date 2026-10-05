@@ -1,0 +1,346 @@
+[
+  {
+    "file": "docs/data/table_main_v2.csv",
+    "source": "results/table_main_v2.csv",
+    "source_sha256": "9385f327a19a0a6c2b33c3772c9d877ece92529182697eb00b2e3a6aa03ab9a2",
+    "source_bytes": 2608,
+    "release_sha256": "9385f327a19a0a6c2b33c3772c9d877ece92529182697eb00b2e3a6aa03ab9a2",
+    "release_bytes": 2608
+  },
+  {
+    "file": "docs/data/cost.csv",
+    "source": "results/cost.csv",
+    "source_sha256": "0dfe6b326f08798b141ed7dacd860b2a18a79e827fc25ea94a8c21a3cfa7ee3f",
+    "source_bytes": 2412,
+    "release_sha256": "0dfe6b326f08798b141ed7dacd860b2a18a79e827fc25ea94a8c21a3cfa7ee3f",
+    "release_bytes": 2412
+  },
+  {
+    "file": "docs/data/scorecard_resolution.csv",
+    "source": "results/scorecard_resolution.csv",
+    "source_sha256": "8188c83170dcb9e9b34545c8cc75df9eb472ddb40986c133542f82f3ab693b83",
+    "source_bytes": 9882,
+    "release_sha256": "8188c83170dcb9e9b34545c8cc75df9eb472ddb40986c133542f82f3ab693b83",
+    "release_bytes": 9882
+  },
+  {
+    "file": "docs/data/video2_summary.csv",
+    "source": "results/video2_summary.csv",
+    "source_sha256": "31d057cbf3595f59fc02de091027a6f94f20cf6246d729224f330b8885459f33",
+    "source_bytes": 8155,
+    "release_sha256": "31d057cbf3595f59fc02de091027a6f94f20cf6246d729224f330b8885459f33",
+    "release_bytes": 8155
+  },
+  {
+    "file": "docs/assets/videos/waterloo-11.mp4",
+    "source": "paper/supplement-v18/waterloo-11.mp4",
+    "source_sha256": "6244b0d6b1fd7e77e87ae73df519a44999115f6022ee719097d7f24b95aa5f94",
+    "source_bytes": 2816299,
+    "release_sha256": "6244b0d6b1fd7e77e87ae73df519a44999115f6022ee719097d7f24b95aa5f94",
+    "release_bytes": 2816299
+  },
+  {
+    "file": "docs/assets/videos/waterloo-14.mp4",
+    "source": "paper/supplement-v18/waterloo-14.mp4",
+    "source_sha256": "9a7d6f39c05c3c187f8c1574bc062e13db56298f994ea35912492c6a6351e403",
+    "source_bytes": 3588251,
+    "release_sha256": "9a7d6f39c05c3c187f8c1574bc062e13db56298f994ea35912492c6a6351e403",
+    "release_bytes": 3588251
+  },
+  {
+    "file": "docs/assets/videos/waterloo-16.mp4",
+    "source": "paper/supplement-v18/waterloo-16.mp4",
+    "source_sha256": "1070f8f7f7ab6de8b0cdb0c1d9c65ce7baf7c85978ddd0cc9dd8e7a5289c3d8f",
+    "source_bytes": 2639447,
+    "release_sha256": "1070f8f7f7ab6de8b0cdb0c1d9c65ce7baf7c85978ddd0cc9dd8e7a5289c3d8f",
+    "release_bytes": 2639447
+  },
+  {
+    "file": "docs/assets/videos/avt-vegetables_tuil.mp4",
+    "source": "paper/supplement-v18/avt-vegetables_tuil.mp4",
+    "source_sha256": "dc64eac5e5c34222d34be8362e74eca3c63b98621cef4df60b2bcd47a640145a",
+    "source_bytes": 1433747,
+    "release_sha256": "dc64eac5e5c34222d34be8362e74eca3c63b98621cef4df60b2bcd47a640145a",
+    "release_bytes": 1433747
+  },
+  {
+    "file": "docs/assets/videos/avt-cutting_orange_tuil.mp4",
+    "source": "paper/supplement-v18/avt-cutting_orange_tuil.mp4",
+    "source_sha256": "d9293319d3dc6fd99426c3eec4857142fdde89ff0a82ae5094d43ba6182c74d2",
+    "source_bytes": 1306547,
+    "release_sha256": "d9293319d3dc6fd99426c3eec4857142fdde89ff0a82ae5094d43ba6182c74d2",
+    "release_bytes": 1306547
+  },
+  {
+    "file": "docs/assets/videos/avt-bigbuck_bunny_8bit.mp4",
+    "source": "paper/supplement-v18/avt-bigbuck_bunny_8bit.mp4",
+    "source_sha256": "7e72ba660e5419538d61ddd663fe614d428a7b23ac8547666e329a226ea69ca1",
+    "source_bytes": 1339353,
+    "release_sha256": "7e72ba660e5419538d61ddd663fe614d428a7b23ac8547666e329a226ea69ca1",
+    "release_bytes": 1339353
+  },
+  {
+    "file": "docs/assets/videos/avt-water_netflix.mp4",
+    "source": "paper/supplement-v18/avt-water_netflix.mp4",
+    "source_sha256": "0f5a7218f8d8e5b5051bf6411c8dfc1e36c21ab9eb2aa75d63875b27d2cb5bb3",
+    "source_bytes": 7805263,
+    "release_sha256": "0f5a7218f8d8e5b5051bf6411c8dfc1e36c21ab9eb2aa75d63875b27d2cb5bb3",
+    "release_bytes": 7805263
+  },
+  {
+    "file": "docs/assets/videos/waterloo-08.mp4",
+    "source": "paper/supplement-v18/waterloo-08.mp4",
+    "source_sha256": "85d4747817fe947dab10435f7738aa69493f784ee6045872da6798101a1cfe79",
+    "source_bytes": 2061335,
+    "release_sha256": "85d4747817fe947dab10435f7738aa69493f784ee6045872da6798101a1cfe79",
+    "release_bytes": 2061335
+  },
+  {
+    "file": "docs/data/video/avt_presentation_manifest.json",
+    "source": "paper/supplement-v18/evidence/avt_presentation_manifest.json",
+    "source_sha256": "d338d6aa11b8f3760e9a88ef040ca00ef0296698d38b41a47b03eb2e2a3a1ab9",
+    "source_bytes": 17987,
+    "release_sha256": "d338d6aa11b8f3760e9a88ef040ca00ef0296698d38b41a47b03eb2e2a3a1ab9",
+    "release_bytes": 17987
+  },
+  {
+    "file": "docs/data/video/avt_protocol.json",
+    "source": "paper/supplement-v18/evidence/avt_protocol.json",
+    "source_sha256": "14a149e1c57c1040a72cab3352cd127d45e2875ae2020384fbf1654eae6d838b",
+    "source_bytes": 2262,
+    "release_sha256": "14a149e1c57c1040a72cab3352cd127d45e2875ae2020384fbf1654eae6d838b",
+    "release_bytes": 2262
+  },
+  {
+    "file": "docs/data/video/waterloo_manifest.json",
+    "source": "paper/supplement-v18/evidence/waterloo_manifest.json",
+    "source_sha256": "7ac19b0ccd638978f9473fb56ef7b82a0c54a772897b149b783aff99226734b6",
+    "source_bytes": 96576,
+    "release_sha256": "7ac19b0ccd638978f9473fb56ef7b82a0c54a772897b149b783aff99226734b6",
+    "release_bytes": 96576
+  },
+  {
+    "file": "docs/data/video/avt_source_manifest.json",
+    "source": "paper/supplement-v18/evidence/avt_source_manifest.json",
+    "source_sha256": "61ed3e26c159884c563d7c847eff077355e9414861963d6ff8ab1a46fb181a19",
+    "source_bytes": 281030,
+    "release_sha256": "61ed3e26c159884c563d7c847eff077355e9414861963d6ff8ab1a46fb181a19",
+    "release_bytes": 281030
+  },
+  {
+    "file": "docs/data/video/avt_by_source.csv",
+    "source": "paper/supplement-v18/evidence/avt_by_source.csv",
+    "source_sha256": "fb15caaf94e5e07cd1bdf8729b162044a795543930ddf585c1fe9c6238608bc9",
+    "source_bytes": 1395,
+    "release_sha256": "fb15caaf94e5e07cd1bdf8729b162044a795543930ddf585c1fe9c6238608bc9",
+    "release_bytes": 1395
+  },
+  {
+    "file": "docs/data/video/avt_aggregate.csv",
+    "source": "paper/supplement-v18/evidence/avt_aggregate.csv",
+    "source_sha256": "f9648107006b8aa00cf04af9f0dd8db824ae71a3fd1f2ade4f1fbf98c60ac864",
+    "source_bytes": 486,
+    "release_sha256": "f9648107006b8aa00cf04af9f0dd8db824ae71a3fd1f2ade4f1fbf98c60ac864",
+    "release_bytes": 486
+  },
+  {
+    "file": "docs/data/video/avt_selected_pairs.json",
+    "source": "paper/supplement-v18/evidence/avt_selected_pairs.json",
+    "source_sha256": "88a3c3d50323f0fe991072ea65cca0a93bffd8fe8630936e07d929a4ec605e44",
+    "source_bytes": 8265,
+    "release_sha256": "88a3c3d50323f0fe991072ea65cca0a93bffd8fe8630936e07d929a4ec605e44",
+    "release_bytes": 8265
+  },
+  {
+    "file": "docs/data/video/avt_recorded_scores.csv",
+    "source": "paper/supplement-v18/evidence/avt_recorded_scores.csv",
+    "source_sha256": "29bff598d106127d12f5c2fa6c672958dcc77001e3a37d3a3812ac87eb0f5f3e",
+    "source_bytes": 44361,
+    "release_sha256": "29bff598d106127d12f5c2fa6c672958dcc77001e3a37d3a3812ac87eb0f5f3e",
+    "release_bytes": 44361
+  },
+  {
+    "file": "docs/data/video/waterloo_recorded_scores.csv",
+    "source": "paper/supplement-v18/evidence/waterloo_recorded_scores.csv",
+    "source_sha256": "91c49bcacefe8921e37a940bef953a20773c491ce1cca0d29ffa43bfee8b984c",
+    "source_bytes": 256736,
+    "release_sha256": "91c49bcacefe8921e37a940bef953a20773c491ce1cca0d29ffa43bfee8b984c",
+    "release_bytes": 256736
+  },
+  {
+    "file": "docs/data/video/waterloo_figure_evidence.json",
+    "source": "paper/supplement-v18/evidence/waterloo_figure_evidence.json",
+    "source_sha256": "4874713e377cf1b6e8fda789efa437c932d0a3b387242cb0ab2f3f322f9aa4e6",
+    "source_bytes": 74300,
+    "release_sha256": "4874713e377cf1b6e8fda789efa437c932d0a3b387242cb0ab2f3f322f9aa4e6",
+    "release_bytes": 74300
+  },
+  {
+    "file": "docs/data/video_manifest.json",
+    "source": "paper/supplement-v18/video_manifest.json",
+    "source_sha256": "2a84a269e0e4924a4dd86626625652d1d335a51dda53769918d9f0e20d869f5c",
+    "source_bytes": 5415,
+    "release_sha256": "3c3495dc88de6ac9f21e6304d97629dd7db77278e6ff94d2a16a302fa4fb0ad8",
+    "release_bytes": 5420
+  },
+  {
+    "file": "docs/data/VIDEO_README.md",
+    "source": "paper/supplement-v18/README.md",
+    "source_sha256": "74fce7332ad0e3f4c88695a12de812d8fdce5e99f9e13a9dcc4dc862e176c778",
+    "source_bytes": 2782,
+    "release_sha256": "4040da59507fdac747d8e0126840aa4c28e456fa4347cad814159b1738cde433",
+    "release_bytes": 3650
+  },
+  {
+    "file": "docs/assets/videos/avt-bigbuck_bunny_8bit.png",
+    "source": "docs/human-rated-video/comparison-bigbuck_bunny_8bit.png",
+    "source_sha256": "4fcf63a2b85d6d182fd86692330b1f66b547cf22493bd30fabb64192d2d4b244",
+    "source_bytes": 668573,
+    "release_sha256": "4fcf63a2b85d6d182fd86692330b1f66b547cf22493bd30fabb64192d2d4b244",
+    "release_bytes": 668573
+  },
+  {
+    "file": "docs/assets/videos/avt-cutting_orange_tuil.png",
+    "source": "docs/human-rated-video/comparison-cutting_orange_tuil.png",
+    "source_sha256": "dd87b963b1208983b2119bdecb4c9686436fc91033930a375d32ef79f844fc06",
+    "source_bytes": 473395,
+    "release_sha256": "dd87b963b1208983b2119bdecb4c9686436fc91033930a375d32ef79f844fc06",
+    "release_bytes": 473395
+  },
+  {
+    "file": "docs/assets/videos/avt-vegetables_tuil.png",
+    "source": "docs/human-rated-video/comparison-vegetables_tuil.png",
+    "source_sha256": "1e29f50ee8c705908a4a2c34fa9f1d697635d062f05d745aeea9c0caecdd4673",
+    "source_bytes": 460360,
+    "release_sha256": "1e29f50ee8c705908a4a2c34fa9f1d697635d062f05d745aeea9c0caecdd4673",
+    "release_bytes": 460360
+  },
+  {
+    "file": "docs/assets/videos/avt-water_netflix.png",
+    "source": "docs/human-rated-video/comparison-water_netflix.png",
+    "source_sha256": "f1ee4f1262b24f8dde6ace7eb5e47ca00a5d7af998cddc665e5f84cfd8e54b84",
+    "source_bytes": 643904,
+    "release_sha256": "f1ee4f1262b24f8dde6ace7eb5e47ca00a5d7af998cddc665e5f84cfd8e54b84",
+    "release_bytes": 643904
+  },
+  {
+    "file": "docs/assets/fig3_model.png",
+    "source": "figures/v18/fig3_model.png",
+    "source_sha256": "190d92b622b1b2a6c03c33eecd9a652c94143b4562e06766aeb17dd5203a885b",
+    "source_bytes": 113365,
+    "release_sha256": "190d92b622b1b2a6c03c33eecd9a652c94143b4562e06766aeb17dd5203a885b",
+    "release_bytes": 113365
+  },
+  {
+    "file": "docs/assets/fig6_resolution.png",
+    "source": "figures/v18/fig6_resolution.png",
+    "source_sha256": "1ed2aeb6887e9c5e193ade159bf1fabdf1f9d404e1c72fde4931489bc7b516de",
+    "source_bytes": 321801,
+    "release_sha256": "1ed2aeb6887e9c5e193ade159bf1fabdf1f9d404e1c72fde4931489bc7b516de",
+    "release_bytes": 321801
+  },
+  {
+    "file": "docs/assets/fig7_encoders.png",
+    "source": "figures/v18/fig7_encoders.png",
+    "source_sha256": "5fb49c48f6d86aa74481053a42a4ca855664eb8843a6ac670f9250f9fa52b03e",
+    "source_bytes": 86391,
+    "release_sha256": "5fb49c48f6d86aa74481053a42a4ca855664eb8843a6ac670f9250f9fa52b03e",
+    "release_bytes": 86391
+  },
+  {
+    "file": "docs/assets/qual_landscape.png",
+    "source": "figures/v25/qual_landscape.png",
+    "source_sha256": "6809939b3e60b55a88038b294ebf49789cbab7ce19567766cb1cdbadb732b7d0",
+    "source_bytes": 956583,
+    "release_sha256": "6809939b3e60b55a88038b294ebf49789cbab7ce19567766cb1cdbadb732b7d0",
+    "release_bytes": 956583
+  },
+  {
+    "file": "docs/assets/examples/hats_contrast.png",
+    "source": "hats_contrast.png",
+    "source_sha256": "c1ef0f8116be41c4a36cd1b024d82b489c599da882468cf73cc936de697d3c1c",
+    "source_bytes": 148428,
+    "release_sha256": "c1ef0f8116be41c4a36cd1b024d82b489c599da882468cf73cc936de697d3c1c",
+    "release_bytes": 148428
+  },
+  {
+    "file": "docs/assets/examples/parrots_color_shift.png",
+    "source": "parrots_color_shift.png",
+    "source_sha256": "41f56121118fea1f132dfc86d3e51da003696673581f9a3a3345bdaf4ac37b0a",
+    "source_bytes": 177398,
+    "release_sha256": "41f56121118fea1f132dfc86d3e51da003696673581f9a3a3345bdaf4ac37b0a",
+    "release_bytes": 177398
+  },
+  {
+    "file": "docs/assets/examples/bikes_blur.png",
+    "source": "bikes_blur.png",
+    "source_sha256": "553be6bb8777c7143524974b2bdec7974b03e715116b4ff9a259aaac1fb3afd7",
+    "source_bytes": 143300,
+    "release_sha256": "553be6bb8777c7143524974b2bdec7974b03e715116b4ff9a259aaac1fb3afd7",
+    "release_bytes": 143300
+  },
+  {
+    "file": "docs/assets/examples/bikes_downsample_x4.png",
+    "source": "bikes_downsample_x4.png",
+    "source_sha256": "f8675103514ed2370e3995cb133ab0f8374a4abe9cae936bd2ac1fd4039fefc7",
+    "source_bytes": 157293,
+    "release_sha256": "f8675103514ed2370e3995cb133ab0f8374a4abe9cae936bd2ac1fd4039fefc7",
+    "release_bytes": 157293
+  },
+  {
+    "file": "docs/assets/examples/hats_posterize.png",
+    "source": "hats_posterize.png",
+    "source_sha256": "a332dc3c95b26038d29ea35d4314eb5a66818d9824a8c69b177d59f88232f40f",
+    "source_bytes": 35852,
+    "release_sha256": "a332dc3c95b26038d29ea35d4314eb5a66818d9824a8c69b177d59f88232f40f",
+    "release_bytes": 35852
+  },
+  {
+    "file": "docs/assets/examples/hats.png",
+    "source": "hats.png",
+    "source_sha256": "51ce756cf9d2bd37c66da8b59491121468375537e763da0117dd9940c2cc54f4",
+    "source_bytes": 175125,
+    "release_sha256": "51ce756cf9d2bd37c66da8b59491121468375537e763da0117dd9940c2cc54f4",
+    "release_bytes": 175125
+  },
+  {
+    "file": "docs/assets/examples/bikes.png",
+    "source": "bikes.png",
+    "source_sha256": "76835c26a47ce347ad7c767edf55760bef1621355f04c9605f9b9323dfb0bcd8",
+    "source_bytes": 269052,
+    "release_sha256": "76835c26a47ce347ad7c767edf55760bef1621355f04c9605f9b9323dfb0bcd8",
+    "release_bytes": 269052
+  },
+  {
+    "file": "docs/assets/examples/hats_noise.png",
+    "source": "hats_noise.png",
+    "source_sha256": "a6764243f71822fe4ad962b38d878b9aba14313ddb9d59e68d51a30db1bf460a",
+    "source_bytes": 274051,
+    "release_sha256": "a6764243f71822fe4ad962b38d878b9aba14313ddb9d59e68d51a30db1bf460a",
+    "release_bytes": 274051
+  },
+  {
+    "file": "docs/assets/examples/parrots_jpeg_q30.png",
+    "source": "parrots_jpeg_q30.png",
+    "source_sha256": "e176c366ea669ba2ba53cbf53341b2da28a9a39d5b45d64f0a38d8b22c65d845",
+    "source_bytes": 128986,
+    "release_sha256": "e176c366ea669ba2ba53cbf53341b2da28a9a39d5b45d64f0a38d8b22c65d845",
+    "release_bytes": 128986
+  },
+  {
+    "file": "docs/assets/examples/parrots_jpeg_q8.png",
+    "source": "parrots_jpeg_q8.png",
+    "source_sha256": "49375cef44b5d9b13d94bcfdd1d7108af9e04b4ff359d567171ae70222dee80e",
+    "source_bytes": 61749,
+    "release_sha256": "49375cef44b5d9b13d94bcfdd1d7108af9e04b4ff359d567171ae70222dee80e",
+    "release_bytes": 61749
+  },
+  {
+    "file": "docs/assets/examples/parrots.png",
+    "source": "parrots.png",
+    "source_sha256": "8fba89a41b5d1ec5fb368e6a7ae367859ac6d4cb474bb5a0939731b0fe50295c",
+    "source_bytes": 179422,
+    "release_sha256": "8fba89a41b5d1ec5fb368e6a7ae367859ac6d4cb474bb5a0939731b0fe50295c",
+    "release_bytes": 179422
+  }
+]

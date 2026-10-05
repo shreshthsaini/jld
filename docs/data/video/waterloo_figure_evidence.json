@@ -1,0 +1,1895 @@
+[
+  {
+    "source": "14",
+    "label": "Railway",
+    "selection_rule": "Preserved v13 example: largest MOS reversal per distinct source where lens agrees and VMAF reverses.",
+    "clips": [
+      {
+        "lane": "Ref",
+        "source_file": "data/video/waterloo4k/ref/14.mp4",
+        "source_sha256": "331ede7678276a66caf2d1cbf49193a9167dfeafefc10075f6f550d526bedb16",
+        "source_stream": {
+          "codec_name": "h264",
+          "width": 3840,
+          "height": 2160,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "duration": "10.010000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 122122,
+            "timestamp_seconds": 4.070733333333333,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "399f7be541849281a4b6c7f153f0bb989a3a8acc122127769623e23a5081eb52",
+            "rgb_array_sha256": "ac757868ebbe22b754a551f134be41bf7e3e39baedbb7700fd3c97d709e82e88"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 130130,
+            "timestamp_seconds": 4.337666666666666,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "653cda1439d2d7846b9557eb3c580f498bb3d98c9083ed446b1284e5b0115a63",
+            "rgb_array_sha256": "60e07074f9efc06140d020607017746a49f29e49314d09318bb655ca3666f57b"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 138138,
+            "timestamp_seconds": 4.6046,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "66a0d8c2e0abf866cdcef62b70d64c431b35bb976b807f92b21d5ffc9f6acc87",
+            "rgb_array_sha256": "b47e9c09a42e5eb6ed7328e383f579f546ca315bc1add5c8738b6d672335fa87"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/ref/14.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/c24aed5fb0474b651304/%02d.png"
+        ]
+      },
+      {
+        "lane": "A",
+        "source_file": "data/video/waterloo4k/dist/VP9_14_1080p_3.mp4",
+        "source_sha256": "5d7022a7ee56628aabf9d9b73b55e865ea9d9c2465df4c2957fbce22a669cfbe",
+        "source_stream": {
+          "codec_name": "vp9",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/1000"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 4071,
+            "timestamp_seconds": 4.071,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "a137bed054a5b00d0e48a86a632edfb23b0e53e68b7765e5a847af8d243aa3e6",
+            "rgb_array_sha256": "afb4541028799e5fe30cc27144679afba677e6976e9673db2b48990c5d939af2"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 4338,
+            "timestamp_seconds": 4.338,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "51e308af53a05a406036a21b8422bab5bedabf1ef82ea48cae2822351b854c32",
+            "rgb_array_sha256": "9f75169448e2c6bc674c0d3e0e7482f10c80277b659a7303ff187f7e5d0a1cbd"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 4605,
+            "timestamp_seconds": 4.605,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "40e2afea4e00cb2309709c9cd167c20c6b41fd2917312200a5c2a289f746667c",
+            "rgb_array_sha256": "aff371817f6f26813af836554cd194fd4557b93160b9e9afa60008e690925bb3"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/dist/VP9_14_1080p_3.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/c409bc5234b33c92e3df/%02d.png"
+        ]
+      },
+      {
+        "lane": "B",
+        "source_file": "data/video/waterloo4k/dist/H264_14_1080p_2.mp4",
+        "source_sha256": "97081c2ba91616e1dd48815591c3b35d024b756db7761e6b6d3df4a745166a73",
+        "source_stream": {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "duration": "10.010000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 122122,
+            "timestamp_seconds": 4.070733333333333,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "4bc0d15194312f814c3164ecc5770724d5bae42e084894110db071347638fd41",
+            "rgb_array_sha256": "999843a9f604ef7367618eb71fab5cccc1f983f074dfb90861a957ee07e62b95"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 130130,
+            "timestamp_seconds": 4.337666666666666,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "45459f788df2024b8c97b112cecf2aa660c70febb1e8ca469fe332ad134e7d08",
+            "rgb_array_sha256": "48b8223a2689ac35817f9a5f9725606d2ab56d290f357d2ede56b29e424e8390"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 138138,
+            "timestamp_seconds": 4.6046,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "3aa5f69ea62cc4fb402cc6882fbb55fce8548b654d3da4570caabcf1bbdbc410",
+            "rgb_array_sha256": "a80e710a8f67172372211b4534f83833c6d178cc447b2b42ad10d46f400a0845"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/dist/H264_14_1080p_2.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/5fab32b49de65a2d82c4/%02d.png"
+        ]
+      }
+    ],
+    "scores": [
+      {
+        "lane": "A",
+        "reference": "data/video/waterloo4k/ref/14.mp4",
+        "distortion": "data/video/waterloo4k/dist/VP9_14_1080p_3.mp4",
+        "mos": 85.62,
+        "lens_distance": 2.29745814647471,
+        "vmaf": 57.883897,
+        "source_file": "results/video2_pairs.csv",
+        "source_line": 216,
+        "source_columns": [
+          "mos",
+          "videomae_b_k400_l2_lens_k16",
+          "vmaf"
+        ],
+        "recorded_row": {
+          "ref": "data/video/waterloo4k/ref/14.mp4",
+          "dist": "data/video/waterloo4k/dist/VP9_14_1080p_3.mp4",
+          "mos": "85.62",
+          "dtype": "VP9",
+          "level": "3",
+          "split": "all",
+          "vjepa2_l1_jld_k32": "11.46948081866105",
+          "vjepa2_l1_jld_k64": "15.948037886039485",
+          "vjepa2_l1_jld_k128": "20.535045162696488",
+          "vjepa2_l2_jld_k32": "10.928199039565122",
+          "vjepa2_l2_jld_k64": "15.662318349943304",
+          "vjepa2_l2_jld_k128": "20.162364889733976",
+          "vjepa2_l1_pca64": "20.69291639155394",
+          "vjepa2_l2_pca64": "19.388702371034743",
+          "vjepa2_l1_full1024": "28.59499135475675",
+          "vjepa2_l2_full1024": "28.01127465635106",
+          "psnr": "30.05467009544373",
+          "ssim": "0.9131647571921347",
+          "ms_ssim": "0.97771018743515",
+          "image_jld_l1_k64": "0.1232373937964439",
+          "vmaf": "57.883897",
+          "config_hash": "9958b2bcc4",
+          "git_commit": "a7a2254",
+          "videomae_b_k400_l1_lens_k16": "2.782346112999047",
+          "videomae_b_k400_l1_lens_k32": "4.002498770099477",
+          "videomae_b_k400_l1_lens_k64": "5.6996431146961255",
+          "videomae_b_k400_l1_lens_k128": "8.698138193442695",
+          "videomae_b_k400_l2_lens_k16": "2.29745814647471",
+          "videomae_b_k400_l2_lens_k32": "3.2925759439826607",
+          "videomae_b_k400_l2_lens_k64": "4.441308818140991",
+          "videomae_b_k400_l2_lens_k128": "6.2950414444435525",
+          "videomae_b_k400_l1_pca_k64": "10.833219092329148",
+          "videomae_b_k400_l2_pca_k64": "7.862883192467549",
+          "videomae_b_k400_l1_full": "17.432375794196215",
+          "videomae_b_k400_l2_full": "14.741755492850448",
+          "video2_config_hash": "2d32247a64",
+          "video2_git_commit": "ebe32e1",
+          "videomae_b_ssl_l1_lens_k16": "3.094572227724843",
+          "videomae_b_ssl_l1_lens_k32": "5.156867943928697",
+          "videomae_b_ssl_l1_lens_k64": "8.072820991851577",
+          "videomae_b_ssl_l1_lens_k128": "11.20192798300806",
+          "videomae_b_ssl_l2_lens_k16": "2.729539912425874",
+          "videomae_b_ssl_l2_lens_k32": "4.069892729861632",
+          "videomae_b_ssl_l2_lens_k64": "6.118948418709213",
+          "videomae_b_ssl_l2_lens_k128": "9.001205999316907",
+          "videomae_b_ssl_l1_pca_k64": "13.63139347244031",
+          "videomae_b_ssl_l2_pca_k64": "10.480761387081078",
+          "videomae_b_ssl_l1_full": "19.97896203767311",
+          "videomae_b_ssl_l2_full": "17.49534872095083",
+          "vjepa2_l_predictor_l1_lens_k16": "7.55155859516342",
+          "vjepa2_l_predictor_l1_lens_k32": "11.312038601902515",
+          "vjepa2_l_predictor_l1_lens_k64": "15.728403937770912",
+          "vjepa2_l_predictor_l1_lens_k128": "20.4299416287373",
+          "vjepa2_l_predictor_l2_lens_k16": "7.380272516165803",
+          "vjepa2_l_predictor_l2_lens_k32": "10.705796001760497",
+          "vjepa2_l_predictor_l2_lens_k64": "15.263458754210316",
+          "vjepa2_l_predictor_l2_lens_k128": "19.970865964342224",
+          "vjepa2_l_predictor_l1_pca_k64": "20.69291639155394",
+          "vjepa2_l_predictor_l2_pca_k64": "19.388702371034746",
+          "vjepa2_l_predictor_l1_full": "28.59499135475675",
+          "vjepa2_l_predictor_l2_full": "28.01127465635106",
+          "source_line": 216
+        }
+      },
+      {
+        "lane": "B",
+        "reference": "data/video/waterloo4k/ref/14.mp4",
+        "distortion": "data/video/waterloo4k/dist/H264_14_1080p_2.mp4",
+        "mos": 26.16,
+        "lens_distance": 4.261681225241712,
+        "vmaf": 59.29094,
+        "source_file": "results/video2_pairs.csv",
+        "source_line": 55,
+        "source_columns": [
+          "mos",
+          "videomae_b_k400_l2_lens_k16",
+          "vmaf"
+        ],
+        "recorded_row": {
+          "ref": "data/video/waterloo4k/ref/14.mp4",
+          "dist": "data/video/waterloo4k/dist/H264_14_1080p_2.mp4",
+          "mos": "26.16",
+          "dtype": "H264",
+          "level": "2",
+          "split": "all",
+          "vjepa2_l1_jld_k32": "20.114828441778656",
+          "vjepa2_l1_jld_k64": "28.665025205709227",
+          "vjepa2_l1_jld_k128": "38.47940503459488",
+          "vjepa2_l2_jld_k32": "18.151091113540826",
+          "vjepa2_l2_jld_k64": "26.238654745787795",
+          "vjepa2_l2_jld_k128": "35.24446809256638",
+          "vjepa2_l1_pca64": "41.74095905658933",
+          "vjepa2_l2_pca64": "36.53222529640676",
+          "vjepa2_l1_full1024": "55.78785986966959",
+          "vjepa2_l2_full1024": "52.21403616375357",
+          "psnr": "24.246647596359253",
+          "ssim": "0.7214370369911194",
+          "ms_ssim": "0.9058467820286752",
+          "image_jld_l1_k64": "0.2426897846162319",
+          "vmaf": "59.29094",
+          "config_hash": "9958b2bcc4",
+          "git_commit": "6653a35",
+          "videomae_b_k400_l1_lens_k16": "5.788628174503387",
+          "videomae_b_k400_l1_lens_k32": "8.299200475630077",
+          "videomae_b_k400_l1_lens_k64": "11.63928513976517",
+          "videomae_b_k400_l1_lens_k128": "16.842710048865687",
+          "videomae_b_k400_l2_lens_k16": "4.261681225241712",
+          "videomae_b_k400_l2_lens_k32": "6.106402871786487",
+          "videomae_b_k400_l2_lens_k64": "8.2057522009007",
+          "videomae_b_k400_l2_lens_k128": "11.290548154229972",
+          "videomae_b_k400_l1_pca_k64": "19.67531506529695",
+          "videomae_b_k400_l2_pca_k64": "14.351101854933772",
+          "videomae_b_k400_l1_full": "30.087958518363028",
+          "videomae_b_k400_l2_full": "24.45005206705178",
+          "video2_config_hash": "2d32247a64",
+          "video2_git_commit": "ebe32e1",
+          "videomae_b_ssl_l1_lens_k16": "6.257927939961086",
+          "videomae_b_ssl_l1_lens_k32": "10.28603532267422",
+          "videomae_b_ssl_l1_lens_k64": "15.428059830584932",
+          "videomae_b_ssl_l1_lens_k128": "20.295939106027014",
+          "videomae_b_ssl_l2_lens_k16": "5.034791233276714",
+          "videomae_b_ssl_l2_lens_k32": "7.3736850730105585",
+          "videomae_b_ssl_l2_lens_k64": "10.749854774381284",
+          "videomae_b_ssl_l2_lens_k128": "14.999897257135109",
+          "videomae_b_ssl_l1_pca_k64": "23.755538937014",
+          "videomae_b_ssl_l2_pca_k64": "17.743712265227135",
+          "videomae_b_ssl_l1_full": "33.77458821122607",
+          "videomae_b_ssl_l2_full": "28.16868325262158",
+          "vjepa2_l_predictor_l1_lens_k16": "13.587093363329876",
+          "vjepa2_l_predictor_l1_lens_k32": "20.17339841023244",
+          "vjepa2_l_predictor_l1_lens_k64": "28.442512757884487",
+          "vjepa2_l_predictor_l1_lens_k128": "38.238114249367165",
+          "vjepa2_l_predictor_l2_lens_k16": "12.584408686753592",
+          "vjepa2_l_predictor_l2_lens_k32": "18.025971220096142",
+          "vjepa2_l_predictor_l2_lens_k64": "25.806962941087736",
+          "vjepa2_l_predictor_l2_lens_k128": "34.871365921840265",
+          "vjepa2_l_predictor_l1_pca_k64": "41.74095905658933",
+          "vjepa2_l_predictor_l2_pca_k64": "36.53222529640676",
+          "vjepa2_l_predictor_l1_full": "55.78785986966959",
+          "vjepa2_l_predictor_l2_full": "52.21403616375357",
+          "source_line": 55
+        }
+      }
+    ],
+    "whole_video_preferences": {
+      "MOS": "A",
+      "Lens": "A",
+      "VMAF": "B"
+    },
+    "crop_xywh_on_1920x1080": [
+      760,
+      760,
+      384,
+      216
+    ],
+    "crop_selection": "Manually fixed display ROI after inspecting frame 130; identical spatial window for all three videos and all three times. No score is computed from this crop.",
+    "artifact_annotation": {
+      "text": "B: fine rail detail lost",
+      "lanes": [
+        "B"
+      ],
+      "box_xywh": [
+        110,
+        40,
+        120,
+        90
+      ],
+      "frame_index": 130,
+      "scope": "Qualitative observation in decoded pixels, not metric attribution, localisation truth or evidence of a temporal-quality mechanism."
+    },
+    "original_v13_example": {
+      "source": "14",
+      "mos_gap": 59.46000000000001,
+      "clips": [
+        {
+          "ref": "data/video/waterloo4k/ref/14.mp4",
+          "dist": "data/video/waterloo4k/dist/VP9_14_1080p_3.mp4",
+          "mos": 85.62,
+          "video_distance": 2.29745814647471,
+          "vmaf": 57.883897,
+          "source_file": "results/video2_pairs.csv",
+          "source_line": 216,
+          "source_columns": [
+            "mos",
+            "videomae_b_k400_l2_lens_k16",
+            "vmaf"
+          ],
+          "displayed": {
+            "mos": "85.62",
+            "video_distance": "2.30",
+            "vmaf": "57.88"
+          },
+          "frame": {
+            "source_file": "data/video/waterloo4k/dist/VP9_14_1080p_3.mp4",
+            "frame_index": 130,
+            "index_origin": 0,
+            "frame_selection": "Middle frame of the fourth evenly spaced evaluation clip.",
+            "source_width": 1920,
+            "source_height": 1080,
+            "preview_file": "runtime/cache/check/v5_video_frames/d083b85a866f1ac1e171.png",
+            "preview_sha256": "51e308af53a05a406036a21b8422bab5bedabf1ef82ea48cae2822351b854c32",
+            "filter": "select=eq(n\\,130),scale=1920:1080:flags=lanczos",
+            "command": [
+              "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+              "-v",
+              "error",
+              "-nostdin",
+              "-threads",
+              "1",
+              "-i",
+              "data/video/waterloo4k/dist/VP9_14_1080p_3.mp4",
+              "-vf",
+              "select=eq(n\\,130),scale=1920:1080:flags=lanczos",
+              "-frames:v",
+              "1",
+              "-fps_mode",
+              "vfr",
+              "-filter_threads",
+              "1",
+              "-threads",
+              "1",
+              "-y",
+              "runtime/cache/check/v5_video_frames/d083b85a866f1ac1e171.png"
+            ],
+            "crop": false
+          }
+        },
+        {
+          "ref": "data/video/waterloo4k/ref/14.mp4",
+          "dist": "data/video/waterloo4k/dist/H264_14_1080p_2.mp4",
+          "mos": 26.16,
+          "video_distance": 4.261681225241712,
+          "vmaf": 59.29094,
+          "source_file": "results/video2_pairs.csv",
+          "source_line": 55,
+          "source_columns": [
+            "mos",
+            "videomae_b_k400_l2_lens_k16",
+            "vmaf"
+          ],
+          "displayed": {
+            "mos": "26.16",
+            "video_distance": "4.26",
+            "vmaf": "59.29"
+          },
+          "frame": {
+            "source_file": "data/video/waterloo4k/dist/H264_14_1080p_2.mp4",
+            "frame_index": 130,
+            "index_origin": 0,
+            "frame_selection": "Middle frame of the fourth evenly spaced evaluation clip.",
+            "source_width": 1920,
+            "source_height": 1080,
+            "preview_file": "runtime/cache/check/v5_video_frames/3e73c6d31178a24deb91.png",
+            "preview_sha256": "45459f788df2024b8c97b112cecf2aa660c70febb1e8ca469fe332ad134e7d08",
+            "filter": "select=eq(n\\,130),scale=1920:1080:flags=lanczos",
+            "command": [
+              "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+              "-v",
+              "error",
+              "-nostdin",
+              "-threads",
+              "1",
+              "-i",
+              "data/video/waterloo4k/dist/H264_14_1080p_2.mp4",
+              "-vf",
+              "select=eq(n\\,130),scale=1920:1080:flags=lanczos",
+              "-frames:v",
+              "1",
+              "-fps_mode",
+              "vfr",
+              "-filter_threads",
+              "1",
+              "-threads",
+              "1",
+              "-y",
+              "runtime/cache/check/v5_video_frames/3e73c6d31178a24deb91.png"
+            ],
+            "crop": false
+          }
+        }
+      ],
+      "display_crop": {
+        "top": 705,
+        "left": 670,
+        "width": 512,
+        "height": 288,
+        "canvas": [
+          1920,
+          1080
+        ],
+        "rule": "Same 512 by 288 crop for both videos, maximising RGB squared difference between their real sampled frames.",
+        "source": "Decoded real frames; scripts/81_fig5_video_v5.py:plot_examples"
+      }
+    }
+  },
+  {
+    "source": "08",
+    "label": "Football",
+    "selection_rule": "Preserved v13 example: largest MOS reversal per distinct source where lens agrees and VMAF reverses.",
+    "clips": [
+      {
+        "lane": "Ref",
+        "source_file": "data/video/waterloo4k/ref/08.mp4",
+        "source_sha256": "86b235b7ab6ec062755496904ea01641ba218eb5a07e532f0a2b8406e615eda0",
+        "source_stream": {
+          "codec_name": "h264",
+          "width": 3840,
+          "height": 2160,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "duration": "10.010000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 122122,
+            "timestamp_seconds": 4.070733333333333,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "70478637346de6d6f845d431d521131b12abeaf5104be3ab02af91fd9ce96275",
+            "rgb_array_sha256": "066a01e3b3ec09656f4f8c0ca9e8fe0a734f871341fd28753188d456302908ad"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 130130,
+            "timestamp_seconds": 4.337666666666666,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "17105500c9fe2c6bb05a9485e71ac36019cf84a0061805c0d940bbf0f4e0a9e2",
+            "rgb_array_sha256": "38ac44b15d5002daf9870534143dd48aa9d9d17cc6d61d1263a941f069583c29"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 138138,
+            "timestamp_seconds": 4.6046,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "d3be02f86f0c0b0744f131e0f8ba262f92393dda23ff7984f99886502f411e9b",
+            "rgb_array_sha256": "36c85d9542b34a81fa0cb74dbf39d427bce2a2cb3c3d75a72e9dc80c2997e0b6"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/ref/08.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/7a4f2f2b1fb215661e57/%02d.png"
+        ]
+      },
+      {
+        "lane": "A",
+        "source_file": "data/video/waterloo4k/dist/VP9_08_1080p_3.mp4",
+        "source_sha256": "9373256c22ddf00ffd2fa85ce1490f7492614cfbcf23046ca880711db2267327",
+        "source_stream": {
+          "codec_name": "vp9",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/1000"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 4071,
+            "timestamp_seconds": 4.071,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "2d64ef6bec1c45e97792e2e0576def786762cba4a7b572b8a10aca652a394281",
+            "rgb_array_sha256": "4468e42e84a1ac855c8f8108db6b65dd9421e02d5e958e4eba29743f798233ae"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 4338,
+            "timestamp_seconds": 4.338,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "be9580230d91d4fca28d0f50436573eda14580af20c51a5e7f996deb8a7f1b69",
+            "rgb_array_sha256": "fc8995c7e80b024d22a09b687e0f1184b696bed9358557682f1459d3850d94a7"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 4605,
+            "timestamp_seconds": 4.605,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "cfe8c108d3503bc4fe4d0673950ce6e259f6fa8eece1f49a3af9424219a60654",
+            "rgb_array_sha256": "ce6e2514d163298a402df274b28a421c0554cb1bde9e8a1e61072749cc9e9740"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/dist/VP9_08_1080p_3.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/797f574d539cc5cfcdd1/%02d.png"
+        ]
+      },
+      {
+        "lane": "B",
+        "source_file": "data/video/waterloo4k/dist/H264_08_1080p_2.mp4",
+        "source_sha256": "edca2d803f64f34b416106872b920bec2494f1b392fed7b64441a48fdcb8906c",
+        "source_stream": {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "duration": "10.010000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 122122,
+            "timestamp_seconds": 4.070733333333333,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "a11350333917b8f7756a9e901abbc7fcdfd464b532f3acde9ebf698651ed9d62",
+            "rgb_array_sha256": "492834e278c00adb903a59f4772ccef22db7f2f7d00dea888ec4ac1eb4a7a749"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 130130,
+            "timestamp_seconds": 4.337666666666666,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "91ba68401f06cf7273257559c6212674302accae5a18b6e68a667bad5a5f40af",
+            "rgb_array_sha256": "548e910116923df0c8a2f31dc96d57b96fe80d9ba053530b4b445499ef0fd3e4"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 138138,
+            "timestamp_seconds": 4.6046,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "25a5098b02302072086307824aa794327e509b5a31e971cbc18b0656a5b1908e",
+            "rgb_array_sha256": "1d0c6e6e34c5864ad429483df4923f810c1f56de430c5364ffaba2d7f2b1a0fa"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/dist/H264_08_1080p_2.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/ceb24e1ae4a8bdb186e1/%02d.png"
+        ]
+      }
+    ],
+    "scores": [
+      {
+        "lane": "A",
+        "reference": "data/video/waterloo4k/ref/08.mp4",
+        "distortion": "data/video/waterloo4k/dist/VP9_08_1080p_3.mp4",
+        "mos": 77.35,
+        "lens_distance": 3.873523215406876,
+        "vmaf": 43.260555,
+        "source_file": "results/video2_pairs.csv",
+        "source_line": 192,
+        "source_columns": [
+          "mos",
+          "videomae_b_k400_l2_lens_k16",
+          "vmaf"
+        ],
+        "recorded_row": {
+          "ref": "data/video/waterloo4k/ref/08.mp4",
+          "dist": "data/video/waterloo4k/dist/VP9_08_1080p_3.mp4",
+          "mos": "77.35",
+          "dtype": "VP9",
+          "level": "3",
+          "split": "all",
+          "vjepa2_l1_jld_k32": "9.384691798210524",
+          "vjepa2_l1_jld_k64": "12.728702784367066",
+          "vjepa2_l1_jld_k128": "16.728487405569457",
+          "vjepa2_l2_jld_k32": "9.856119479885692",
+          "vjepa2_l2_jld_k64": "14.170351428114",
+          "vjepa2_l2_jld_k128": "18.786070092482177",
+          "vjepa2_l1_pca64": "15.461331586552346",
+          "vjepa2_l2_pca64": "22.90436482706088",
+          "vjepa2_l1_full1024": "21.302119571372053",
+          "vjepa2_l2_full1024": "29.56989697425189",
+          "psnr": "29.72987174987793",
+          "ssim": "0.8087153434753418",
+          "ms_ssim": "0.9312992990016936",
+          "image_jld_l1_k64": "0.1410237783566117",
+          "vmaf": "43.260555",
+          "config_hash": "9958b2bcc4",
+          "git_commit": "a7a2254",
+          "videomae_b_k400_l1_lens_k16": "4.1369556939092575",
+          "videomae_b_k400_l1_lens_k32": "5.850064543017513",
+          "videomae_b_k400_l1_lens_k64": "8.347842466555987",
+          "videomae_b_k400_l1_lens_k128": "11.99260348614322",
+          "videomae_b_k400_l2_lens_k16": "3.873523215406876",
+          "videomae_b_k400_l2_lens_k32": "5.420221697788184",
+          "videomae_b_k400_l2_lens_k64": "7.411368874612911",
+          "videomae_b_k400_l2_lens_k128": "10.080460861736311",
+          "videomae_b_k400_l1_pca_k64": "11.458080016139268",
+          "videomae_b_k400_l2_pca_k64": "10.873374072017478",
+          "videomae_b_k400_l1_full": "20.404414049076667",
+          "videomae_b_k400_l2_full": "19.82565467782945",
+          "video2_config_hash": "2d32247a64",
+          "video2_git_commit": "ebe32e1",
+          "videomae_b_ssl_l1_lens_k16": "4.092696411019651",
+          "videomae_b_ssl_l1_lens_k32": "6.85874598927604",
+          "videomae_b_ssl_l1_lens_k64": "10.25811065217283",
+          "videomae_b_ssl_l1_lens_k128": "13.494227870803227",
+          "videomae_b_ssl_l2_lens_k16": "3.900386926824032",
+          "videomae_b_ssl_l2_lens_k32": "5.783387093289559",
+          "videomae_b_ssl_l2_lens_k64": "8.335722558522587",
+          "videomae_b_ssl_l2_lens_k128": "11.390808857505364",
+          "videomae_b_ssl_l1_pca_k64": "13.033479678185234",
+          "videomae_b_ssl_l2_pca_k64": "12.03036222278809",
+          "videomae_b_ssl_l1_full": "21.45216757575141",
+          "videomae_b_ssl_l2_full": "20.550343360723986",
+          "vjepa2_l_predictor_l1_lens_k16": "6.431585502214531",
+          "vjepa2_l_predictor_l1_lens_k32": "9.2840410396535",
+          "vjepa2_l_predictor_l1_lens_k64": "12.59561620473188",
+          "vjepa2_l_predictor_l1_lens_k128": "16.65099075623017",
+          "vjepa2_l_predictor_l2_lens_k16": "6.97107950115276",
+          "vjepa2_l_predictor_l2_lens_k32": "9.81419700478156",
+          "vjepa2_l_predictor_l2_lens_k64": "13.942855763881981",
+          "vjepa2_l_predictor_l2_lens_k128": "18.58576935110399",
+          "vjepa2_l_predictor_l1_pca_k64": "15.461331586552346",
+          "vjepa2_l_predictor_l2_pca_k64": "22.904364827060878",
+          "vjepa2_l_predictor_l1_full": "21.302119571372053",
+          "vjepa2_l_predictor_l2_full": "29.56989697425189",
+          "source_line": 192
+        }
+      },
+      {
+        "lane": "B",
+        "reference": "data/video/waterloo4k/ref/08.mp4",
+        "distortion": "data/video/waterloo4k/dist/H264_08_1080p_2.mp4",
+        "mos": 19.73,
+        "lens_distance": 7.789758496195285,
+        "vmaf": 45.053263,
+        "source_file": "results/video2_pairs.csv",
+        "source_line": 31,
+        "source_columns": [
+          "mos",
+          "videomae_b_k400_l2_lens_k16",
+          "vmaf"
+        ],
+        "recorded_row": {
+          "ref": "data/video/waterloo4k/ref/08.mp4",
+          "dist": "data/video/waterloo4k/dist/H264_08_1080p_2.mp4",
+          "mos": "19.73",
+          "dtype": "H264",
+          "level": "2",
+          "split": "all",
+          "vjepa2_l1_jld_k32": "13.602375004058578",
+          "vjepa2_l1_jld_k64": "18.55034529783597",
+          "vjepa2_l1_jld_k128": "24.545662192548463",
+          "vjepa2_l2_jld_k32": "14.695192635679582",
+          "vjepa2_l2_jld_k64": "20.58361103730249",
+          "vjepa2_l2_jld_k128": "27.57584879615881",
+          "vjepa2_l1_pca64": "24.371198230537185",
+          "vjepa2_l2_pca64": "38.93949255582783",
+          "vjepa2_l1_full1024": "31.77215403995875",
+          "vjepa2_l2_full1024": "46.36823965805491",
+          "psnr": "27.489983558654785",
+          "ssim": "0.6432044021785259",
+          "ms_ssim": "0.8183509260416031",
+          "image_jld_l1_k64": "0.2509775068610906",
+          "vmaf": "45.053263",
+          "config_hash": "9958b2bcc4",
+          "git_commit": "6653a35",
+          "videomae_b_k400_l1_lens_k16": "8.065210640811811",
+          "videomae_b_k400_l1_lens_k32": "10.606665870727214",
+          "videomae_b_k400_l1_lens_k64": "13.948690737193235",
+          "videomae_b_k400_l1_lens_k128": "18.25591349489143",
+          "videomae_b_k400_l2_lens_k16": "7.789758496195285",
+          "videomae_b_k400_l2_lens_k32": "10.200298250737166",
+          "videomae_b_k400_l2_lens_k64": "13.253240440997429",
+          "videomae_b_k400_l2_lens_k128": "16.929089812469602",
+          "videomae_b_k400_l1_pca_k64": "17.56917230783156",
+          "videomae_b_k400_l2_pca_k64": "19.57071237974073",
+          "videomae_b_k400_l1_full": "27.901957387864723",
+          "videomae_b_k400_l2_full": "29.31353575741204",
+          "video2_config_hash": "2d32247a64",
+          "video2_git_commit": "ebe32e1",
+          "videomae_b_ssl_l1_lens_k16": "6.777336045846216",
+          "videomae_b_ssl_l1_lens_k32": "10.694519994449593",
+          "videomae_b_ssl_l1_lens_k64": "15.096916798474725",
+          "videomae_b_ssl_l1_lens_k128": "19.316560781263828",
+          "videomae_b_ssl_l2_lens_k16": "7.028943815318559",
+          "videomae_b_ssl_l2_lens_k32": "9.887085002383683",
+          "videomae_b_ssl_l2_lens_k64": "13.571530407688424",
+          "videomae_b_ssl_l2_lens_k128": "17.53540327136517",
+          "videomae_b_ssl_l1_pca_k64": "18.831536075053595",
+          "videomae_b_ssl_l2_pca_k64": "20.09780297109952",
+          "videomae_b_ssl_l1_full": "28.730102619714163",
+          "videomae_b_ssl_l2_full": "29.394046922920225",
+          "vjepa2_l_predictor_l1_lens_k16": "9.83014756391721",
+          "vjepa2_l_predictor_l1_lens_k32": "13.573770191273512",
+          "vjepa2_l_predictor_l1_lens_k64": "18.429416500878865",
+          "vjepa2_l_predictor_l1_lens_k128": "24.46876574597394",
+          "vjepa2_l_predictor_l2_lens_k16": "10.805270032425511",
+          "vjepa2_l_predictor_l2_lens_k32": "14.728699449667568",
+          "vjepa2_l_predictor_l2_lens_k64": "20.4052678992051",
+          "vjepa2_l_predictor_l2_lens_k128": "27.26466395042473",
+          "vjepa2_l_predictor_l1_pca_k64": "24.371198230537182",
+          "vjepa2_l_predictor_l2_pca_k64": "38.93949255582783",
+          "vjepa2_l_predictor_l1_full": "31.77215403995875",
+          "vjepa2_l_predictor_l2_full": "46.36823965805491",
+          "source_line": 31
+        }
+      }
+    ],
+    "whole_video_preferences": {
+      "MOS": "A",
+      "Lens": "A",
+      "VMAF": "B"
+    },
+    "crop_xywh_on_1920x1080": [
+      1024,
+      480,
+      384,
+      216
+    ],
+    "crop_selection": "Manually fixed display ROI after inspecting frame 130; identical spatial window for all three videos and all three times. No score is computed from this crop.",
+    "artifact_annotation": {
+      "text": "B: block edges on the player",
+      "lanes": [
+        "B"
+      ],
+      "box_xywh": [
+        150,
+        60,
+        110,
+        110
+      ],
+      "frame_index": 130,
+      "scope": "Qualitative observation in decoded pixels, not metric attribution, localisation truth or evidence of a temporal-quality mechanism."
+    },
+    "original_v13_example": {
+      "source": "08",
+      "mos_gap": 57.61999999999999,
+      "clips": [
+        {
+          "ref": "data/video/waterloo4k/ref/08.mp4",
+          "dist": "data/video/waterloo4k/dist/VP9_08_1080p_3.mp4",
+          "mos": 77.35,
+          "video_distance": 3.873523215406876,
+          "vmaf": 43.260555,
+          "source_file": "results/video2_pairs.csv",
+          "source_line": 192,
+          "source_columns": [
+            "mos",
+            "videomae_b_k400_l2_lens_k16",
+            "vmaf"
+          ],
+          "displayed": {
+            "mos": "77.35",
+            "video_distance": "3.87",
+            "vmaf": "43.26"
+          },
+          "frame": {
+            "source_file": "data/video/waterloo4k/dist/VP9_08_1080p_3.mp4",
+            "frame_index": 130,
+            "index_origin": 0,
+            "frame_selection": "Middle frame of the fourth evenly spaced evaluation clip.",
+            "source_width": 1920,
+            "source_height": 1080,
+            "preview_file": "runtime/cache/check/v5_video_frames/3b04dba380d127049305.png",
+            "preview_sha256": "be9580230d91d4fca28d0f50436573eda14580af20c51a5e7f996deb8a7f1b69",
+            "filter": "select=eq(n\\,130),scale=1920:1080:flags=lanczos",
+            "command": [
+              "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+              "-v",
+              "error",
+              "-nostdin",
+              "-threads",
+              "1",
+              "-i",
+              "data/video/waterloo4k/dist/VP9_08_1080p_3.mp4",
+              "-vf",
+              "select=eq(n\\,130),scale=1920:1080:flags=lanczos",
+              "-frames:v",
+              "1",
+              "-fps_mode",
+              "vfr",
+              "-filter_threads",
+              "1",
+              "-threads",
+              "1",
+              "-y",
+              "runtime/cache/check/v5_video_frames/3b04dba380d127049305.png"
+            ],
+            "crop": false
+          }
+        },
+        {
+          "ref": "data/video/waterloo4k/ref/08.mp4",
+          "dist": "data/video/waterloo4k/dist/H264_08_1080p_2.mp4",
+          "mos": 19.73,
+          "video_distance": 7.789758496195285,
+          "vmaf": 45.053263,
+          "source_file": "results/video2_pairs.csv",
+          "source_line": 31,
+          "source_columns": [
+            "mos",
+            "videomae_b_k400_l2_lens_k16",
+            "vmaf"
+          ],
+          "displayed": {
+            "mos": "19.73",
+            "video_distance": "7.79",
+            "vmaf": "45.05"
+          },
+          "frame": {
+            "source_file": "data/video/waterloo4k/dist/H264_08_1080p_2.mp4",
+            "frame_index": 130,
+            "index_origin": 0,
+            "frame_selection": "Middle frame of the fourth evenly spaced evaluation clip.",
+            "source_width": 1920,
+            "source_height": 1080,
+            "preview_file": "runtime/cache/check/v5_video_frames/bcce3f579d13ca5f684c.png",
+            "preview_sha256": "91ba68401f06cf7273257559c6212674302accae5a18b6e68a667bad5a5f40af",
+            "filter": "select=eq(n\\,130),scale=1920:1080:flags=lanczos",
+            "command": [
+              "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+              "-v",
+              "error",
+              "-nostdin",
+              "-threads",
+              "1",
+              "-i",
+              "data/video/waterloo4k/dist/H264_08_1080p_2.mp4",
+              "-vf",
+              "select=eq(n\\,130),scale=1920:1080:flags=lanczos",
+              "-frames:v",
+              "1",
+              "-fps_mode",
+              "vfr",
+              "-filter_threads",
+              "1",
+              "-threads",
+              "1",
+              "-y",
+              "runtime/cache/check/v5_video_frames/bcce3f579d13ca5f684c.png"
+            ],
+            "crop": false
+          }
+        }
+      ],
+      "display_crop": {
+        "top": 484,
+        "left": 964,
+        "width": 512,
+        "height": 288,
+        "canvas": [
+          1920,
+          1080
+        ],
+        "rule": "Same 512 by 288 crop for both videos, maximising RGB squared difference between their real sampled frames.",
+        "source": "Decoded real frames; scripts/81_fig5_video_v5.py:plot_examples"
+      }
+    }
+  },
+  {
+    "source": "16",
+    "label": "Dance",
+    "selection_rule": "Additional agreement: largest positive MOS gap among remaining sources with the stated metric ordering; ties break by A then B source path.",
+    "clips": [
+      {
+        "lane": "Ref",
+        "source_file": "data/video/waterloo4k/ref/16.mp4",
+        "source_sha256": "2db332e29c1f4cf86f43a3fb44ef15d9949bdd1abe10dfcf7d520ce384e61b5c",
+        "source_stream": {
+          "codec_name": "h264",
+          "width": 3840,
+          "height": 2160,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "duration": "10.010000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 122122,
+            "timestamp_seconds": 4.070733333333333,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "dd54a3045a2ab844191bd2648b191befa42091fe79c245528049d31cbed2643e",
+            "rgb_array_sha256": "a1e7070089bf8de9ff33f88146ce15dcdc9e15dd344ef621081bb7a14699fefa"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 130130,
+            "timestamp_seconds": 4.337666666666666,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "c94b356581d572ef90ae834f2a80740bdf1cb29a5091f1c3825d688ae522ec88",
+            "rgb_array_sha256": "7fb2930bfe330e7c6c1bf281c39ee84737ef1ef5c6901710ead30911db0ad613"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 138138,
+            "timestamp_seconds": 4.6046,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "7aa31792c508ae4fea9402b687c5c64e23bbdcc9efb7a838e5c1de6159cfab23",
+            "rgb_array_sha256": "c2670b37d2dd11cdd12f93b17e3795888047934f4300b04494d7d7b501a5c2d1"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/ref/16.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/164bb3b58c0aab1b8888/%02d.png"
+        ]
+      },
+      {
+        "lane": "A",
+        "source_file": "data/video/waterloo4k/dist/VP9_16_1080p_3.mp4",
+        "source_sha256": "9b4147574f6ab44e32e78a4db94ae9f8f90f7ee9390acef50b5ef2ad597f1dce",
+        "source_stream": {
+          "codec_name": "vp9",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/1000"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 4071,
+            "timestamp_seconds": 4.071,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "c002214cc05a6a38def774481a2b3896865abcba5688e0ed9bbea18df6b8c453",
+            "rgb_array_sha256": "96be82677cafbc1e31468d74aad297da0face1d71a2b8f7fd7b24b9fbca403bc"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 4338,
+            "timestamp_seconds": 4.338,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "06f94c25943a5c8c83c29e89de67a0246fc106eb60a3ec08b3ceafa908ca7ef5",
+            "rgb_array_sha256": "3dddc5cae2ba0335396cab6d655b585b77103dfad55c8b43d00c96d9e60e94a3"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 4605,
+            "timestamp_seconds": 4.605,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "9ab2147a02e40829affa8adc972b028a97c608311dbef7b06fb3897169e8d6d6",
+            "rgb_array_sha256": "41cb896a0ce5355de5cf3b5b1fd16cd0241bd6d49b03a2270072dc695f0a82c9"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/dist/VP9_16_1080p_3.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/7de557f4d4871541844d/%02d.png"
+        ]
+      },
+      {
+        "lane": "B",
+        "source_file": "data/video/waterloo4k/dist/HEVC_16_1080p_2.mp4",
+        "source_sha256": "35d142fd1379e263022b954ca7b57c563239fd7841cf9dfccd42f09ffb86ebe9",
+        "source_stream": {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "avg_frame_rate": "30000/1001",
+          "time_base": "1/30000",
+          "duration": "10.010000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 122122,
+            "timestamp_seconds": 4.070733333333333,
+            "nominal_timestamp_seconds": 4.070733333333333,
+            "decoded_png_sha256": "93d28b0c86890ebe3c99bfcd056efa1e7fb2e20c3e977b51cf513f0805358069",
+            "rgb_array_sha256": "9640ee181f75425512ce944f128b3f6adc68cd37fee425035108097730b5bb36"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 130130,
+            "timestamp_seconds": 4.337666666666666,
+            "nominal_timestamp_seconds": 4.337666666666666,
+            "decoded_png_sha256": "cffaa8940889757b55c8e5793684e2031feec3a0ba0dc14555c8779dc8eed2b7",
+            "rgb_array_sha256": "a8ba8d08ddad40da7b2cb4959e320e103849dbdd6cbd64dfdb1406bb9065ecf6"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 138138,
+            "timestamp_seconds": 4.6046,
+            "nominal_timestamp_seconds": 4.6046,
+            "decoded_png_sha256": "f5afb7a7c1e02f70b89c584874ed1cd3e2c4e6ed4002775a7c8b2db26f62b5df",
+            "rgb_array_sha256": "e5807c681ab55ad98a61781ed60095dccb8d7e6119ca3fbe48610a5325030322"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/dist/HEVC_16_1080p_2.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/9d6e760f631363808a61/%02d.png"
+        ]
+      }
+    ],
+    "scores": [
+      {
+        "lane": "A",
+        "reference": "data/video/waterloo4k/ref/16.mp4",
+        "distortion": "data/video/waterloo4k/dist/VP9_16_1080p_3.mp4",
+        "mos": 78.02,
+        "lens_distance": 3.380661930553204,
+        "vmaf": 60.630977,
+        "source_file": "results/video2_pairs.csv",
+        "source_line": 224,
+        "source_columns": [
+          "mos",
+          "videomae_b_k400_l2_lens_k16",
+          "vmaf"
+        ],
+        "recorded_row": {
+          "ref": "data/video/waterloo4k/ref/16.mp4",
+          "dist": "data/video/waterloo4k/dist/VP9_16_1080p_3.mp4",
+          "mos": "78.02",
+          "dtype": "VP9",
+          "level": "3",
+          "split": "all",
+          "vjepa2_l1_jld_k32": "11.707077031369026",
+          "vjepa2_l1_jld_k64": "16.262224089197346",
+          "vjepa2_l1_jld_k128": "21.48271229361493",
+          "vjepa2_l2_jld_k32": "11.908146424336062",
+          "vjepa2_l2_jld_k64": "16.80696820433589",
+          "vjepa2_l2_jld_k128": "21.816087925022096",
+          "vjepa2_l1_pca64": "19.327992468882982",
+          "vjepa2_l2_pca64": "19.21691081853352",
+          "vjepa2_l1_full1024": "26.928816030648285",
+          "vjepa2_l2_full1024": "27.803197372220563",
+          "psnr": "28.849427700042725",
+          "ssim": "0.8891748115420341",
+          "ms_ssim": "0.9584046825766565",
+          "image_jld_l1_k64": "0.1616401690989732",
+          "vmaf": "60.630977",
+          "config_hash": "9958b2bcc4",
+          "git_commit": "a7a2254",
+          "videomae_b_k400_l1_lens_k16": "3.744611444854117",
+          "videomae_b_k400_l1_lens_k32": "5.496585739878657",
+          "videomae_b_k400_l1_lens_k64": "7.500131256226535",
+          "videomae_b_k400_l1_lens_k128": "10.289524957203303",
+          "videomae_b_k400_l2_lens_k16": "3.380661930553204",
+          "videomae_b_k400_l2_lens_k32": "4.771380966383867",
+          "videomae_b_k400_l2_lens_k64": "6.556959410943945",
+          "videomae_b_k400_l2_lens_k128": "8.805986093718504",
+          "videomae_b_k400_l1_pca_k64": "9.8499488809876",
+          "videomae_b_k400_l2_pca_k64": "8.87316295254802",
+          "videomae_b_k400_l1_full": "16.987206694124872",
+          "videomae_b_k400_l2_full": "16.425907993621447",
+          "video2_config_hash": "2d32247a64",
+          "video2_git_commit": "ebe32e1",
+          "videomae_b_ssl_l1_lens_k16": "3.893357998386621",
+          "videomae_b_ssl_l1_lens_k32": "6.206341618133451",
+          "videomae_b_ssl_l1_lens_k64": "9.03727637260941",
+          "videomae_b_ssl_l1_lens_k128": "12.02363468278654",
+          "videomae_b_ssl_l2_lens_k16": "3.757332610578876",
+          "videomae_b_ssl_l2_lens_k32": "5.5664310709082025",
+          "videomae_b_ssl_l2_lens_k64": "7.933207334858889",
+          "videomae_b_ssl_l2_lens_k128": "10.850356010889657",
+          "videomae_b_ssl_l1_pca_k64": "11.628354644763151",
+          "videomae_b_ssl_l2_pca_k64": "10.370233199055034",
+          "videomae_b_ssl_l1_full": "18.989584125707808",
+          "videomae_b_ssl_l2_full": "18.35247231441229",
+          "vjepa2_l_predictor_l1_lens_k16": "8.13045142765643",
+          "vjepa2_l_predictor_l1_lens_k32": "11.529298984295398",
+          "vjepa2_l_predictor_l1_lens_k64": "16.030565927644954",
+          "vjepa2_l_predictor_l1_lens_k128": "21.395150307138277",
+          "vjepa2_l_predictor_l2_lens_k16": "8.055000010513504",
+          "vjepa2_l_predictor_l2_lens_k32": "11.626777554043025",
+          "vjepa2_l_predictor_l2_lens_k64": "16.41500353578128",
+          "vjepa2_l_predictor_l2_lens_k128": "21.602789084185872",
+          "vjepa2_l_predictor_l1_pca_k64": "19.327992468882982",
+          "vjepa2_l_predictor_l2_pca_k64": "19.21691081853352",
+          "vjepa2_l_predictor_l1_full": "26.928816030648285",
+          "vjepa2_l_predictor_l2_full": "27.803197372220563",
+          "source_line": 224
+        }
+      },
+      {
+        "lane": "B",
+        "reference": "data/video/waterloo4k/ref/16.mp4",
+        "distortion": "data/video/waterloo4k/dist/HEVC_16_1080p_2.mp4",
+        "mos": 23.27,
+        "lens_distance": 5.973954513091839,
+        "vmaf": 60.682214,
+        "source_file": "results/video2_pairs.csv",
+        "source_line": 143,
+        "source_columns": [
+          "mos",
+          "videomae_b_k400_l2_lens_k16",
+          "vmaf"
+        ],
+        "recorded_row": {
+          "ref": "data/video/waterloo4k/ref/16.mp4",
+          "dist": "data/video/waterloo4k/dist/HEVC_16_1080p_2.mp4",
+          "mos": "23.27",
+          "dtype": "HEVC",
+          "level": "2",
+          "split": "all",
+          "vjepa2_l1_jld_k32": "21.70063898226892",
+          "vjepa2_l1_jld_k64": "30.38782459683528",
+          "vjepa2_l1_jld_k128": "40.48363003915856",
+          "vjepa2_l2_jld_k32": "20.892428860216302",
+          "vjepa2_l2_jld_k64": "29.135311544313023",
+          "vjepa2_l2_jld_k128": "38.3529307373319",
+          "vjepa2_l1_pca64": "39.41566968198679",
+          "vjepa2_l2_pca64": "36.85477547208308",
+          "vjepa2_l1_full1024": "51.42272099112278",
+          "vjepa2_l2_full1024": "50.4559830806783",
+          "psnr": "23.3548424243927",
+          "ssim": "0.7441339194774628",
+          "ms_ssim": "0.8827340453863144",
+          "image_jld_l1_k64": "0.2972599677741527",
+          "vmaf": "60.682214",
+          "config_hash": "9958b2bcc4",
+          "git_commit": "6653a35",
+          "videomae_b_k400_l1_lens_k16": "7.609997295023253",
+          "videomae_b_k400_l1_lens_k32": "10.617072929342395",
+          "videomae_b_k400_l1_lens_k64": "13.842615154242774",
+          "videomae_b_k400_l1_lens_k128": "18.074560870776",
+          "videomae_b_k400_l2_lens_k16": "5.973954513091839",
+          "videomae_b_k400_l2_lens_k32": "8.211884477561837",
+          "videomae_b_k400_l2_lens_k64": "10.912020842529484",
+          "videomae_b_k400_l2_lens_k128": "14.172045655153592",
+          "videomae_b_k400_l1_pca_k64": "17.523544113916508",
+          "videomae_b_k400_l2_pca_k64": "15.002485768661526",
+          "videomae_b_k400_l1_full": "28.02774675777329",
+          "videomae_b_k400_l2_full": "25.172391008881217",
+          "video2_config_hash": "2d32247a64",
+          "video2_git_commit": "ebe32e1",
+          "videomae_b_ssl_l1_lens_k16": "7.21474659538843",
+          "videomae_b_ssl_l1_lens_k32": "11.068585074610668",
+          "videomae_b_ssl_l1_lens_k64": "15.51908874264922",
+          "videomae_b_ssl_l1_lens_k128": "20.15864659928448",
+          "videomae_b_ssl_l2_lens_k16": "6.337619318393771",
+          "videomae_b_ssl_l2_lens_k32": "9.130919117451612",
+          "videomae_b_ssl_l2_lens_k64": "12.730828775545442",
+          "videomae_b_ssl_l2_lens_k128": "16.98966834325551",
+          "videomae_b_ssl_l1_pca_k64": "19.801358721574108",
+          "videomae_b_ssl_l2_pca_k64": "17.02468734431716",
+          "videomae_b_ssl_l1_full": "30.739729740143623",
+          "videomae_b_ssl_l2_full": "28.03222464033372",
+          "vjepa2_l_predictor_l1_lens_k16": "15.526734399894845",
+          "vjepa2_l_predictor_l1_lens_k32": "21.567310183719968",
+          "vjepa2_l_predictor_l1_lens_k64": "30.03118420136197",
+          "vjepa2_l_predictor_l1_lens_k128": "40.313362999483495",
+          "vjepa2_l_predictor_l2_lens_k16": "14.46505676986256",
+          "vjepa2_l_predictor_l2_lens_k32": "20.50156238463746",
+          "vjepa2_l_predictor_l2_lens_k64": "28.628924504744145",
+          "vjepa2_l_predictor_l2_lens_k128": "37.94686386961461",
+          "vjepa2_l_predictor_l1_pca_k64": "39.415669681986785",
+          "vjepa2_l_predictor_l2_pca_k64": "36.85477547208308",
+          "vjepa2_l_predictor_l1_full": "51.42272099112278",
+          "vjepa2_l_predictor_l2_full": "50.4559830806783",
+          "source_line": 143
+        }
+      }
+    ],
+    "whole_video_preferences": {
+      "MOS": "A",
+      "Lens": "A",
+      "VMAF": "B"
+    },
+    "crop_xywh_on_1920x1080": [
+      960,
+      340,
+      384,
+      216
+    ],
+    "crop_selection": "Manually fixed display ROI after inspecting frame 130; identical spatial window for all three videos and all three times. No score is computed from this crop.",
+    "artifact_annotation": {
+      "text": "B: facial detail lost",
+      "lanes": [
+        "B"
+      ],
+      "box_xywh": [
+        16,
+        8,
+        108,
+        112
+      ],
+      "frame_index": 130,
+      "scope": "Qualitative observation in decoded pixels, not metric attribution, localisation truth or evidence of a temporal-quality mechanism."
+    },
+    "original_v13_example": null
+  },
+  {
+    "source": "11",
+    "label": "Game scene",
+    "selection_rule": "Additional failure: largest positive MOS gap among remaining sources with the stated metric ordering; ties break by A then B source path.",
+    "clips": [
+      {
+        "lane": "Ref",
+        "source_file": "data/video/waterloo4k/ref/11.mp4",
+        "source_sha256": "dcbd82d85e0a33b09c506a9b76a968013f104c927533ac001e6819ae3809c912",
+        "source_stream": {
+          "codec_name": "h264",
+          "width": 3840,
+          "height": 2160,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "time_base": "1/30000",
+          "duration": "10.000000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 122000,
+            "timestamp_seconds": 4.066666666666666,
+            "nominal_timestamp_seconds": 4.066666666666666,
+            "decoded_png_sha256": "774b0bfaa69bc8193daea01fd23c97c811720356cec997fbbbaf85fd8b6ddb65",
+            "rgb_array_sha256": "d6c42da73cee35a7c5bf3d2a8bf31a49f9f0406c378bb07d558c28ea87ebc88b"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 130000,
+            "timestamp_seconds": 4.333333333333333,
+            "nominal_timestamp_seconds": 4.333333333333333,
+            "decoded_png_sha256": "05cba06fbff44ed071361b20e1fd3c5ef9937bc3b374a9c52cff5d81bb723e85",
+            "rgb_array_sha256": "baf207e7e52e8f1822a93dc1d039db231beff1040f6ddd4e09fd4eaf30017873"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 138000,
+            "timestamp_seconds": 4.6,
+            "nominal_timestamp_seconds": 4.6,
+            "decoded_png_sha256": "0b15e2b176208e394f4084c6f3ff938f3dbd7aa95a0cea4b00c651249f8f5d6f",
+            "rgb_array_sha256": "28f42f6dc691363234d75ec76fe1a2e284290e81fcc51db0afdb291ca3894f1f"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/ref/11.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/9daf0fe845cf0233e44d/%02d.png"
+        ]
+      },
+      {
+        "lane": "A",
+        "source_file": "data/video/waterloo4k/dist/HEVC_11_1080p_3.mp4",
+        "source_sha256": "996ba236cd946b047619805e6f7de41ddbbec17eb1bd413f2874f5c90716e8d3",
+        "source_stream": {
+          "codec_name": "hevc",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "time_base": "1/15360",
+          "duration": "10.000000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 62464,
+            "timestamp_seconds": 4.066666666666666,
+            "nominal_timestamp_seconds": 4.066666666666666,
+            "decoded_png_sha256": "b6e3a3a19a7f1ee6e709efa44e42bf9591bb3987a88ce1b694428c59501d3664",
+            "rgb_array_sha256": "cae7d8513364baeec51c873e1835248420286dd83a7af244c7044d8a73021525"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 66560,
+            "timestamp_seconds": 4.333333333333333,
+            "nominal_timestamp_seconds": 4.333333333333333,
+            "decoded_png_sha256": "f84343f5c9c28039bce57ba365c69bd00479898822661b81974fa8e4e780118b",
+            "rgb_array_sha256": "c03a21ebc89a1f8f27ae8d8f18c67f35a5956187885affffcc7a02331d4eaec1"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 70656,
+            "timestamp_seconds": 4.6,
+            "nominal_timestamp_seconds": 4.6,
+            "decoded_png_sha256": "a1b0824dded631b10f0f2b75e79f43f2f25b477a8b5e7606c48937436793ec59",
+            "rgb_array_sha256": "6c69b376c52decbe910a10c1b204c9d7c6d15f6c04cf95fe892e73374d8ed4a4"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/dist/HEVC_11_1080p_3.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/9e6ec2c63a3e01d76869/%02d.png"
+        ]
+      },
+      {
+        "lane": "B",
+        "source_file": "data/video/waterloo4k/dist/H264_11_1080p_3.mp4",
+        "source_sha256": "d7b1f1b38ccc5848a6bc7e6299b6ab048adb317fedd3eecf3993495ffdb5a00b",
+        "source_stream": {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "time_base": "1/15360",
+          "duration": "10.000000",
+          "nb_frames": "300"
+        },
+        "frame_indices_zero_based": [
+          122,
+          130,
+          138
+        ],
+        "display_canvas_pixels": [
+          1920,
+          1080
+        ],
+        "filter": "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+        "frames": [
+          {
+            "source_frame_index": 122,
+            "source_pts": 62464,
+            "timestamp_seconds": 4.066666666666666,
+            "nominal_timestamp_seconds": 4.066666666666666,
+            "decoded_png_sha256": "05819531ee4273226e27f3e08dadfd9d02bfaab17aeea12d415a419eaac3f3a5",
+            "rgb_array_sha256": "f4db5bcd5b74e2af6afc96b257adf9b1e660d90a45926342a1af213dcec6ff0a"
+          },
+          {
+            "source_frame_index": 130,
+            "source_pts": 66560,
+            "timestamp_seconds": 4.333333333333333,
+            "nominal_timestamp_seconds": 4.333333333333333,
+            "decoded_png_sha256": "d6592a9e78bd89da4f956f8c466773e3b961ac324f350f0707ddce578834f0c4",
+            "rgb_array_sha256": "62b1c916a0e64329a08431c551a60078436192c61074c4b65b0643881c077049"
+          },
+          {
+            "source_frame_index": 138,
+            "source_pts": 70656,
+            "timestamp_seconds": 4.6,
+            "nominal_timestamp_seconds": 4.6,
+            "decoded_png_sha256": "475b7caefd04a4de3ee7b5c558270c7d51e31176e8b1b6cdd39b68476619b459",
+            "rgb_array_sha256": "6fb2c1ba29a8bee1563eaaf282cc574aa408afafa4bc158bf1cfa88e3c84d656"
+          }
+        ],
+        "command": [
+          "tools/ffmpeg-7.1-shared/bin/ffmpeg",
+          "-v",
+          "info",
+          "-nostdin",
+          "-threads",
+          "1",
+          "-i",
+          "data/video/waterloo4k/dist/H264_11_1080p_3.mp4",
+          "-vf",
+          "select=eq(n\\,122)+eq(n\\,130)+eq(n\\,138),showinfo,scale=1920:1080:flags=lanczos",
+          "-frames:v",
+          "3",
+          "-fps_mode",
+          "vfr",
+          "-filter_threads",
+          "1",
+          "-threads",
+          "1",
+          "-y",
+          "decode-cache/784f697bbc0899a131ff/%02d.png"
+        ]
+      }
+    ],
+    "scores": [
+      {
+        "lane": "A",
+        "reference": "data/video/waterloo4k/ref/11.mp4",
+        "distortion": "data/video/waterloo4k/dist/HEVC_11_1080p_3.mp4",
+        "mos": 58.42,
+        "lens_distance": 4.815775140777205,
+        "vmaf": 59.615028,
+        "source_file": "results/video2_pairs.csv",
+        "source_line": 124,
+        "source_columns": [
+          "mos",
+          "videomae_b_k400_l2_lens_k16",
+          "vmaf"
+        ],
+        "recorded_row": {
+          "ref": "data/video/waterloo4k/ref/11.mp4",
+          "dist": "data/video/waterloo4k/dist/HEVC_11_1080p_3.mp4",
+          "mos": "58.42",
+          "dtype": "HEVC",
+          "level": "3",
+          "split": "all",
+          "vjepa2_l1_jld_k32": "10.656841496582771",
+          "vjepa2_l1_jld_k64": "14.851772734284284",
+          "vjepa2_l1_jld_k128": "20.04203927162312",
+          "vjepa2_l2_jld_k32": "11.719017412313518",
+          "vjepa2_l2_jld_k64": "16.41254535328859",
+          "vjepa2_l2_jld_k128": "21.73984860701782",
+          "vjepa2_l1_pca64": "18.99760050429144",
+          "vjepa2_l2_pca64": "20.60055799932184",
+          "vjepa2_l1_full1024": "25.74222795544052",
+          "vjepa2_l2_full1024": "28.501370179551305",
+          "psnr": "29.953941106796265",
+          "ssim": "0.8379626721143723",
+          "ms_ssim": "0.9275333881378174",
+          "image_jld_l1_k64": "0.1956483889371156",
+          "vmaf": "59.615028",
+          "config_hash": "9958b2bcc4",
+          "git_commit": "6653a35",
+          "videomae_b_k400_l1_lens_k16": "5.239137242503925",
+          "videomae_b_k400_l1_lens_k32": "7.657339913777499",
+          "videomae_b_k400_l1_lens_k64": "10.33354591848266",
+          "videomae_b_k400_l1_lens_k128": "13.56610481417203",
+          "videomae_b_k400_l2_lens_k16": "4.815775140777205",
+          "videomae_b_k400_l2_lens_k32": "6.739325984736615",
+          "videomae_b_k400_l2_lens_k64": "9.134524091194878",
+          "videomae_b_k400_l2_lens_k128": "11.990448925722866",
+          "videomae_b_k400_l1_pca_k64": "11.775810847944037",
+          "videomae_b_k400_l2_pca_k64": "11.976447117915953",
+          "videomae_b_k400_l1_full": "19.855227057475474",
+          "videomae_b_k400_l2_full": "20.729086206430164",
+          "video2_config_hash": "2d32247a64",
+          "video2_git_commit": "ebe32e1",
+          "videomae_b_ssl_l1_lens_k16": "4.885207371678354",
+          "videomae_b_ssl_l1_lens_k32": "7.869131520470309",
+          "videomae_b_ssl_l1_lens_k64": "11.24769816691876",
+          "videomae_b_ssl_l1_lens_k128": "14.3220998561187",
+          "videomae_b_ssl_l2_lens_k16": "4.750226994160171",
+          "videomae_b_ssl_l2_lens_k32": "6.95836402596959",
+          "videomae_b_ssl_l2_lens_k64": "9.82893026233927",
+          "videomae_b_ssl_l2_lens_k128": "13.079112062383787",
+          "videomae_b_ssl_l1_pca_k64": "12.813720533340629",
+          "videomae_b_ssl_l2_pca_k64": "12.421474196007791",
+          "videomae_b_ssl_l1_full": "20.6670230814236",
+          "videomae_b_ssl_l2_full": "21.06991175071365",
+          "vjepa2_l_predictor_l1_lens_k16": "7.742317483467145",
+          "vjepa2_l_predictor_l1_lens_k32": "10.618706713089216",
+          "vjepa2_l_predictor_l1_lens_k64": "14.741374904634219",
+          "vjepa2_l_predictor_l1_lens_k128": "19.958491978449498",
+          "vjepa2_l_predictor_l2_lens_k16": "8.17467361871916",
+          "vjepa2_l_predictor_l2_lens_k32": "11.541880228061352",
+          "vjepa2_l_predictor_l2_lens_k64": "16.163892875065304",
+          "vjepa2_l_predictor_l2_lens_k128": "21.505139025035017",
+          "vjepa2_l_predictor_l1_pca_k64": "18.997600504291437",
+          "vjepa2_l_predictor_l2_pca_k64": "20.600557999321836",
+          "vjepa2_l_predictor_l1_full": "25.742227955440516",
+          "vjepa2_l_predictor_l2_full": "28.501370179551305",
+          "source_line": 124
+        }
+      },
+      {
+        "lane": "B",
+        "reference": "data/video/waterloo4k/ref/11.mp4",
+        "distortion": "data/video/waterloo4k/dist/H264_11_1080p_3.mp4",
+        "mos": 43.47,
+        "lens_distance": 4.790580446716685,
+        "vmaf": 54.63287,
+        "source_file": "results/video2_pairs.csv",
+        "source_line": 44,
+        "source_columns": [
+          "mos",
+          "videomae_b_k400_l2_lens_k16",
+          "vmaf"
+        ],
+        "recorded_row": {
+          "ref": "data/video/waterloo4k/ref/11.mp4",
+          "dist": "data/video/waterloo4k/dist/H264_11_1080p_3.mp4",
+          "mos": "43.47",
+          "dtype": "H264",
+          "level": "3",
+          "split": "all",
+          "vjepa2_l1_jld_k32": "11.385734125558676",
+          "vjepa2_l1_jld_k64": "15.66741402175903",
+          "vjepa2_l1_jld_k128": "21.018735566078966",
+          "vjepa2_l2_jld_k32": "12.047339246144029",
+          "vjepa2_l2_jld_k64": "16.885883410351195",
+          "vjepa2_l2_jld_k128": "22.420015456018216",
+          "vjepa2_l1_pca64": "19.457112662714263",
+          "vjepa2_l2_pca64": "20.69424669596544",
+          "vjepa2_l1_full1024": "26.777283133251046",
+          "vjepa2_l2_full1024": "29.16930781440626",
+          "psnr": "29.30282974243164",
+          "ssim": "0.8296336680650711",
+          "ms_ssim": "0.9218063578009604",
+          "image_jld_l1_k64": "0.2020241990685463",
+          "vmaf": "54.63287",
+          "config_hash": "9958b2bcc4",
+          "git_commit": "6653a35",
+          "videomae_b_k400_l1_lens_k16": "5.373909795336965",
+          "videomae_b_k400_l1_lens_k32": "7.847951971760659",
+          "videomae_b_k400_l1_lens_k64": "10.626289065084704",
+          "videomae_b_k400_l1_lens_k128": "13.91054977635918",
+          "videomae_b_k400_l2_lens_k16": "4.790580446716685",
+          "videomae_b_k400_l2_lens_k32": "6.705511917496202",
+          "videomae_b_k400_l2_lens_k64": "9.181143709298478",
+          "videomae_b_k400_l2_lens_k128": "12.101998012874796",
+          "videomae_b_k400_l1_pca_k64": "11.991849197437077",
+          "videomae_b_k400_l2_pca_k64": "12.186175191228822",
+          "videomae_b_k400_l1_full": "20.391683289407187",
+          "videomae_b_k400_l2_full": "20.958082143240176",
+          "video2_config_hash": "2d32247a64",
+          "video2_git_commit": "ebe32e1",
+          "videomae_b_ssl_l1_lens_k16": "5.22220823638928",
+          "videomae_b_ssl_l1_lens_k32": "8.28586305933371",
+          "videomae_b_ssl_l1_lens_k64": "11.685066500186018",
+          "videomae_b_ssl_l1_lens_k128": "14.703533657447316",
+          "videomae_b_ssl_l2_lens_k16": "4.883888504489623",
+          "videomae_b_ssl_l2_lens_k32": "7.136755397725504",
+          "videomae_b_ssl_l2_lens_k64": "9.98049884948372",
+          "videomae_b_ssl_l2_lens_k128": "13.186436614783508",
+          "videomae_b_ssl_l1_pca_k64": "13.071896144148551",
+          "videomae_b_ssl_l2_pca_k64": "12.545429645294991",
+          "videomae_b_ssl_l1_full": "21.282995973012827",
+          "videomae_b_ssl_l2_full": "21.30794040087397",
+          "vjepa2_l_predictor_l1_lens_k16": "8.245491862410958",
+          "vjepa2_l_predictor_l1_lens_k32": "11.337376509123226",
+          "vjepa2_l_predictor_l1_lens_k64": "15.579872974519422",
+          "vjepa2_l_predictor_l1_lens_k128": "20.940355430727188",
+          "vjepa2_l_predictor_l2_lens_k16": "8.400549533443433",
+          "vjepa2_l_predictor_l2_lens_k32": "11.910899498488691",
+          "vjepa2_l_predictor_l2_lens_k64": "16.670818778046527",
+          "vjepa2_l_predictor_l2_lens_k128": "22.180009722006673",
+          "vjepa2_l_predictor_l1_pca_k64": "19.457112662714263",
+          "vjepa2_l_predictor_l2_pca_k64": "20.69424669596544",
+          "vjepa2_l_predictor_l1_full": "26.777283133251046",
+          "vjepa2_l_predictor_l2_full": "29.16930781440626",
+          "source_line": 44
+        }
+      }
+    ],
+    "whole_video_preferences": {
+      "MOS": "A",
+      "Lens": "B",
+      "VMAF": "A"
+    },
+    "crop_xywh_on_1920x1080": [
+      650,
+      460,
+      384,
+      216
+    ],
+    "crop_selection": "Manually fixed display ROI after inspecting frame 130; identical spatial window for all three videos and all three times. No score is computed from this crop.",
+    "artifact_annotation": {
+      "text": "A and B: texture changes",
+      "lanes": [
+        "A",
+        "B"
+      ],
+      "box_xywh": [
+        30,
+        50,
+        140,
+        120
+      ],
+      "frame_index": 130,
+      "scope": "Qualitative observation in decoded pixels, not metric attribution, localisation truth or evidence of a temporal-quality mechanism."
+    },
+    "original_v13_example": null
+  }
+]

@@ -1,0 +1,145 @@
+{
+  "version": "v18",
+  "clips": [
+    {
+      "file": "waterloo-14.mp4",
+      "sha256": "9a7d6f39c05c3c187f8c1574bc062e13db56298f994ea35912492c6a6351e403",
+      "study": "Waterloo / temporal VideoMAE lens",
+      "stream": {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 350,
+        "r_frame_rate": "30000/1001",
+        "avg_frame_rate": "30000/1001",
+        "time_base": "1/30000",
+        "duration": "4.004000",
+        "nb_frames": "120"
+      }
+    },
+    {
+      "file": "waterloo-08.mp4",
+      "sha256": "85d4747817fe947dab10435f7738aa69493f784ee6045872da6798101a1cfe79",
+      "study": "Waterloo / temporal VideoMAE lens",
+      "stream": {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 350,
+        "r_frame_rate": "30000/1001",
+        "avg_frame_rate": "30000/1001",
+        "time_base": "1/30000",
+        "duration": "4.004000",
+        "nb_frames": "120"
+      }
+    },
+    {
+      "file": "waterloo-16.mp4",
+      "sha256": "1070f8f7f7ab6de8b0cdb0c1d9c65ce7baf7c85978ddd0cc9dd8e7a5289c3d8f",
+      "study": "Waterloo / temporal VideoMAE lens",
+      "stream": {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 350,
+        "r_frame_rate": "30000/1001",
+        "avg_frame_rate": "30000/1001",
+        "time_base": "1/30000",
+        "duration": "4.004000",
+        "nb_frames": "120"
+      }
+    },
+    {
+      "file": "waterloo-11.mp4",
+      "sha256": "6244b0d6b1fd7e77e87ae73df519a44999115f6022ee719097d7f24b95aa5f94",
+      "study": "Waterloo / temporal VideoMAE lens",
+      "stream": {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 350,
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "duration": "4.000000",
+        "nb_frames": "120"
+      }
+    },
+    {
+      "file": "avt-bigbuck_bunny_8bit.mp4",
+      "sha256": "7e72ba660e5419538d61ddd663fe614d428a7b23ac8547666e329a226ea69ca1",
+      "study": "AVT / separate framewise spatial image-JLD pilot",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1408,
+        "height": 834,
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "time_base": "1/15360",
+        "duration": "3.000000",
+        "nb_frames": "90"
+      }
+    },
+    {
+      "file": "avt-cutting_orange_tuil.mp4",
+      "sha256": "d9293319d3dc6fd99426c3eec4857142fdde89ff0a82ae5094d43ba6182c74d2",
+      "study": "AVT / separate framewise spatial image-JLD pilot",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1408,
+        "height": 834,
+        "r_frame_rate": "19001/634",
+        "avg_frame_rate": "19001/634",
+        "time_base": "1/19001",
+        "duration": "3.003000",
+        "nb_frames": "90"
+      }
+    },
+    {
+      "file": "avt-vegetables_tuil.mp4",
+      "sha256": "dc64eac5e5c34222d34be8362e74eca3c63b98621cef4df60b2bcd47a640145a",
+      "study": "AVT / separate framewise spatial image-JLD pilot",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1408,
+        "height": 834,
+        "r_frame_rate": "19001/634",
+        "avg_frame_rate": "19001/634",
+        "time_base": "1/19001",
+        "duration": "3.003000",
+        "nb_frames": "90"
+      }
+    },
+    {
+      "file": "avt-water_netflix.mp4",
+      "sha256": "0f5a7218f8d8e5b5051bf6411c8dfc1e36c21ab9eb2aa75d63875b27d2cb5bb3",
+      "study": "AVT / separate framewise spatial image-JLD pilot",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1408,
+        "height": 834,
+        "r_frame_rate": "19001/634",
+        "avg_frame_rate": "19001/634",
+        "time_base": "1/19001",
+        "duration": "3.003000",
+        "nb_frames": "90"
+      }
+    }
+  ],
+  "historical_mp4s_preserved_byte_for_byte": true,
+  "display_only": true,
+  "new_model_inference": false,
+  "waterloo_original_manifest_sha256": "9283178223fbdcaccbf82a8ba27ba4d6b1fc9080617a5e939b43c3c17835ca02",
+  "avt_original_manifest_sha256": "f7822df7316b31324f143b8b251fbaa3a0a96d1a9fa1d36e884a2585537464fc",
+  "path_normalization": "Machine-specific path roots replaced; dataset filenames, scores, frames and hashes retained.",
+  "evidence_files": {
+    "avt_aggregate.csv": "f9648107006b8aa00cf04af9f0dd8db824ae71a3fd1f2ade4f1fbf98c60ac864",
+    "avt_by_source.csv": "fb15caaf94e5e07cd1bdf8729b162044a795543930ddf585c1fe9c6238608bc9",
+    "avt_presentation_manifest.json": "d338d6aa11b8f3760e9a88ef040ca00ef0296698d38b41a47b03eb2e2a3a1ab9",
+    "avt_protocol.json": "14a149e1c57c1040a72cab3352cd127d45e2875ae2020384fbf1654eae6d838b",
+    "avt_recorded_scores.csv": "29bff598d106127d12f5c2fa6c672958dcc77001e3a37d3a3812ac87eb0f5f3e",
+    "avt_selected_pairs.json": "88a3c3d50323f0fe991072ea65cca0a93bffd8fe8630936e07d929a4ec605e44",
+    "avt_source_manifest.json": "61ed3e26c159884c563d7c847eff077355e9414861963d6ff8ab1a46fb181a19",
+    "waterloo_display_pixels.npz": "1566847f9d274dc1fd5429a3da017c6330b8d37fd17fdbbcc7f0076ef5d669ba",
+    "waterloo_figure_evidence.json": "4874713e377cf1b6e8fda789efa437c932d0a3b387242cb0ab2f3f322f9aa4e6",
+    "waterloo_manifest.json": "7ac19b0ccd638978f9473fb56ef7b82a0c54a772897b149b783aff99226734b6",
+    "waterloo_recorded_scores.csv": "91c49bcacefe8921e37a940bef953a20773c491ce1cca0d29ffa43bfee8b984c"
+  },
+  "verification": "Eight original SHA256 matches; each MP4 fully decodes, has video and no audio; metadata and text have no personal paths."
+}
