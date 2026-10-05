@@ -11,10 +11,6 @@ authors:
     given-names: Shreshth
   - family-names: Adsumilli
     given-names: Balu
-  - family-names: Wang
-    given-names: Yilin
-  - family-names: Birkbeck
-    given-names: Neil
   - family-names: Bovik
     given-names: Alan C.
 keywords:
@@ -30,10 +26,6 @@ preferred-citation:
       given-names: Shreshth
     - family-names: Adsumilli
       given-names: Balu
-    - family-names: Wang
-      given-names: Yilin
-    - family-names: Birkbeck
-      given-names: Neil
     - family-names: Bovik
       given-names: Alan C.
   journal: "arXiv preprint"

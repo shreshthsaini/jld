@@ -1628,8 +1628,8 @@
     },
     {
       "file": "blog/index.html",
-      "bytes": 17053,
-      "sha256": "946cc47a64cd2d7611a16006a07183de47ec4d34b4ccda7e51ae389abd97c3fc"
+      "bytes": 16991,
+      "sha256": "8bb7b471ae094656491f67f3fffa0ed1ced427596e698607228f2bbd8c299b36"
     },
     {
       "file": "data/VIDEO_README.md",
@@ -1818,13 +1818,13 @@
     },
     {
       "file": "downloads/paper.pdf",
-      "bytes": 17600070,
-      "sha256": "4dd0fbc9e174e869d29c8918df0ce58dda76f02ece774c9378d126362d26c853"
+      "bytes": 17599632,
+      "sha256": "13586c37d997bdc2419f997f392b55532c66abb9351313553483c8045a5dc36b"
     },
     {
       "file": "index.html",
-      "bytes": 23691,
-      "sha256": "b9f718a9705d2852d3befa58c024b9953344ed4c44f91d5ac9bb1b102bac6cf1"
+      "bytes": 23573,
+      "sha256": "0a4f0ad2298971ebdb978b24e75b4d6f5ee1c67ea3f64d315f83d10ebe634604"
     },
     {
       "file": "site.js",

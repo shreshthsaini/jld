@@ -2,7 +2,7 @@
 
 [Project page](https://shreshthsaini.github.io/jld/) | [Paper](https://shreshthsaini.github.io/jld/downloads/paper.pdf) (preprint, 2026) | [Code](https://github.com/shreshthsaini/jld) | [Blog](https://shreshthsaini.github.io/jld/blog/)
 
-Shreshth Saini, Balu Adsumilli, Yilin Wang, Neil Birkbeck, Alan C. Bovik
+Shreshth Saini, Balu Adsumilli, Alan C. Bovik
 
 JLD is a full-reference perceptual distance between two images, computed from a
 frozen DINOv2-S/14 encoder. It compares the block-1 patch tokens of the two
@@ -238,7 +238,7 @@ part of this code.
 ```bibtex
 @article{saini2026jld,
   title={JLD: Perceptual Distance through a Jacobian Lens},
-  author={Saini, Shreshth and Adsumilli, Balu and Wang, Yilin and Birkbeck, Neil and Bovik, Alan C.},
+  author={Saini, Shreshth and Adsumilli, Balu and Bovik, Alan C.},
   journal={arXiv preprint},
   year={2026}
 }
