@@ -20,7 +20,7 @@ keywords:
   - DINOv2
 preferred-citation:
   type: article
-  title: "JLD: Perceptual Distance through a Jacobian Lens"
+  title: "JLD: Perceptual Distance Through A Jacobian Lens"
   authors:
     - family-names: Saini
       given-names: Shreshth
@@ -28,5 +28,7 @@ preferred-citation:
       given-names: Balu
     - family-names: Bovik
       given-names: Alan C.
-  journal: "arXiv preprint"
+  journal: "arXiv"
+  doi: "10.48550/arXiv.2610.05967"
   year: 2026
+  url: "https://arxiv.org/abs/2610.05967"

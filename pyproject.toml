@@ -37,6 +37,7 @@ baselines = ["pyiqa>=0.1.13"]
 test = ["pytest>=7"]
 
 [project.urls]
+Paper = "https://arxiv.org/abs/2610.05967"
 Homepage = "https://shreshthsaini.github.io/jld/"
 Repository = "https://github.com/shreshthsaini/jld"
 Issues = "https://github.com/shreshthsaini/jld/issues"

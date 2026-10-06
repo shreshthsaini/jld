@@ -1,6 +1,9 @@
 # JLD: Perceptual Distance through a Jacobian Lens
 
-[Project page](https://shreshthsaini.github.io/jld/) | [Paper](https://shreshthsaini.github.io/jld/downloads/paper.pdf) (preprint, 2026) | [Code](https://github.com/shreshthsaini/jld) | [Blog](https://shreshthsaini.github.io/jld/blog/)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.05967-B31B1B?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2610.05967)
+[![Project page](https://img.shields.io/badge/Project-Page-52665A?style=flat-square&logo=googlechrome&logoColor=white)](https://shreshthsaini.github.io/jld/)
+[![Code](https://img.shields.io/badge/GitHub-Code-24292F?style=flat-square&logo=github&logoColor=white)](https://github.com/shreshthsaini/jld)
+[![Blog](https://img.shields.io/badge/Read-Blog-6B6259?style=flat-square)](https://shreshthsaini.github.io/jld/blog/)
 
 Shreshth Saini, Balu Adsumilli, Alan C. Bovik
 
@@ -235,12 +238,18 @@ part of this code.
 
 ## Citation
 
+If you use JLD, please cite the [arXiv paper](https://arxiv.org/abs/2610.05967).
+
 ```bibtex
-@article{saini2026jld,
-  title={JLD: Perceptual Distance through a Jacobian Lens},
-  author={Saini, Shreshth and Adsumilli, Balu and Bovik, Alan C.},
-  journal={arXiv preprint},
-  year={2026}
+@misc{saini2026jld,
+  title         = {{JLD}: Perceptual Distance Through A Jacobian Lens},
+  author        = {Saini, Shreshth and Adsumilli, Balu and Bovik, Alan C.},
+  year          = {2026},
+  eprint        = {2610.05967},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  doi           = {10.48550/arXiv.2610.05967},
+  url           = {https://arxiv.org/abs/2610.05967}
 }
 ```
 
