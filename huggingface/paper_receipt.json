@@ -22,5 +22,12 @@
     "status": 403,
     "error": "You are not allowed to update this paper"
   },
-  "artifact_link_verification": "Pending root model and Space upload"
+  "artifact_link_verification": {
+    "linked_models": [
+      "shreshthsaini/JLD"
+    ],
+    "linked_spaces": [
+      "shreshthsaini/JLD-demo"
+    ]
+  }
 }

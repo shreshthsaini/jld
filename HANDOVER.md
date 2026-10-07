@@ -17,7 +17,8 @@ PyIQA's current architecture registry supports external entry points, but
 `create_metric()` and `list_models()` consult `DEFAULT_CONFIGS`. The issue asks
 for the recommended plugin configuration/discovery path and whether maintainers
 prefer a plugin or an upstream PR. Treat this as an observed integration question,
-not evidence that a plugin has been implemented or tested.
+not a statement about upstream acceptance. The implementation and validation
+below were completed after the proposal.
 
 The issue explicitly distinguishes executable metric support from the existing
 paper-list contribution at
@@ -68,12 +69,28 @@ images, both variants, and local response overlays. Hosted CPU creation returned
 HTTP 402 because HF now requires PRO for CPU Gradio hosting. Free ZeroGPU creation
 succeeded for https://huggingface.co/spaces/shreshthsaini/JLD-demo. The app has
 been adapted to preload the shared encoder and use a short GPU scoring function.
-Remote deployment verification follows the versioned wheel upload.
+The Space reached RUNNING and anonymous live API calls verified both variants
+and response maps against the released examples. Desktop/mobile browser checks
+passed; mobile has no horizontal overflow. The default pair now loads on arrival.
 
 Two account steps need the user: configure the pending PyPI Trusted Publisher
 listed in `.agent/notes/pypi-publishing.txt`; claim authorship on the HF paper
 page, since the available token returned HTTP 403 for that account action.
 The working versioned wheel installation is independent of PyPI readiness.
+GitHub release https://github.com/shreshthsaini/jld/releases/tag/v1.1.0 is live
+with wheel, source distribution, and SHA256SUMS. The public wheel was installed
+cleanly and its download hash matched the validated local final build. GitHub
+CI passed on Python 3.10 and 3.12. Build/publish run 37580454484 passed the build
+but PyPI rejected OIDC with invalid-publisher because no matching publisher
+was configured. After the user configures it, rerun that failed publish job.
+
+HF collection groups the paper, lens, and Space:
+https://huggingface.co/collections/shreshthsaini/jld-perceptual-distance-through-a-jacobian-lens-6ac5e3613e5371d47f962c05
+Both artifacts are independently verified in the paper API's linked lists.
+HF lens bytes match the bundled lens. No local browser or server remains running.
+The real `uv init`, `uv add` from the public wheel, and `uv run` flow succeeded
+with both optional adapters. Integration issues #304 and #3561 and IQA
+paper-list PR #48 now link the shipped package, adapter instructions, and demo.
 
 Submitted issue texts are preserved in `.agent/notes/pyiqa-proposal.txt` and
 `.agent/notes/torchmetrics-proposal.txt`.

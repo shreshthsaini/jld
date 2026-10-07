@@ -42,26 +42,37 @@ Model and Space cards referencing https://arxiv.org/abs/2610.05967 can link
 their artifacts to the paper independently of this authorship step. Verify
 the public paper API's `linkedModels` and `linkedSpaces` after upload.
 
-## Release preparation
+## Published artifacts
 
-`model/README.md` is the prepared lens card. Upload it with the MIT license
-and the unchanged `jld/data/jld_dinov2_s14_block1_k64.npz`. The card includes
-the paper link, explicit `arxiv:2610.05967` tag, native-resolution protocol,
-uv installation, artifact provenance, limitations, and citation.
+- Model: https://huggingface.co/shreshthsaini/JLD
+- Interactive ZeroGPU Space: https://huggingface.co/spaces/shreshthsaini/JLD-demo
+- Collection: https://huggingface.co/collections/shreshthsaini/jld-perceptual-distance-through-a-jacobian-lens-6ac5e3613e5371d47f962c05
+- Versioned wheel: https://github.com/shreshthsaini/jld/releases/tag/v1.1.0
 
-Target artifact repositories are https://huggingface.co/shreshthsaini/JLD
-and https://huggingface.co/spaces/shreshthsaini/JLD-demo. The model card uses
-`uv add` from the official GitHub source until a PyPI upload is verified.
-Replace that with `uv add jacobian-lens-distance` only after publication.
+The public paper API independently lists both the model and Space as linked
+artifacts. The downloaded HF lens matches the shipped lens's SHA-256. The
+GitHub wheel's downloaded bytes match the local validated final build.
+
+A CPU Gradio Space creation attempt returned HTTP 402 because PRO is now
+required for that hardware. Creating a free ZeroGPU Gradio Space succeeded.
+The Space reached RUNNING. Anonymous live API calls returned full JLD 0.246233
+and JLD-fast 0.213864 for the released parrots/JPEG8 pair, matching the official
+scores within tolerance, and returned response overlays. These are demo parity
+checks, not new benchmark measurements. Desktop/mobile browser checks passed.
+
+The model and Space cards use uv installation from the published versioned
+wheel. Replace the installation command with `uv add jacobian-lens-distance`
+only after a public PyPI upload is verified.
 
 Sanitized API receipts are preserved in `paper_receipt.json`. Tokens, email
 addresses, and authorization headers are excluded.
 
-The account reports `isPro=false` and `canPay=false`. Use the free CPU Space;
+The account reports `isPro=false` and `canPay=false`. Use the free ZeroGPU Space;
 do not request a paid hardware upgrade as part of this release.
 
-Existing paper-list submissions should be updated with released integration
-links when relevant; avoid submitting the same paper twice to the same list.
+The existing IQA paper-list PR #48 and integration issues #304 and #3561 now
+link the released adapters and demo. Existing submissions were preserved;
+no duplicate paper-list PR was created.
 No email, Slack message, or private direct outreach was sent in this task.
 
 ## Official references

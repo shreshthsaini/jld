@@ -20,3 +20,7 @@ No PyPI credential or pending publisher was found in this session's environment
 or repository secret names. The user has been asked to configure the exact
 pending publisher. GitHub release wheels provide an immediately usable uv
 installation path while PyPI publication is pending.
+
+Initial release workflow run 37580454484 built successfully but publication
+failed with invalid-publisher. After configuration, rerun the failed job:
+`gh run rerun 37580454484 --repo shreshthsaini/jld --failed`.

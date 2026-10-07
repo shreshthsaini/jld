@@ -1,0 +1,18 @@
+{
+  "url": "https://huggingface.co/collections/shreshthsaini/jld-perceptual-distance-through-a-jacobian-lens-6ac5e3613e5371d47f962c05",
+  "slug": "shreshthsaini/jld-perceptual-distance-through-a-jacobian-lens-6ac5e3613e5371d47f962c05",
+  "items": [
+    {
+      "type": "paper",
+      "id": "2610.05967"
+    },
+    {
+      "type": "model",
+      "id": "shreshthsaini/JLD"
+    },
+    {
+      "type": "space",
+      "id": "shreshthsaini/JLD-demo"
+    }
+  ]
+}

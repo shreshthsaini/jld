@@ -1,0 +1,29 @@
+Adoption release verification, 2026-10-07
+
+GitHub release: https://github.com/shreshthsaini/jld/releases/tag/v1.1.0
+Tag source: a873e4719125b8025e566034adb86d5a6b67d09a
+Wheel SHA-256: a2aac02655ca80993961285c078e494bac9651b403e18f62c7b0b23978bdca18
+Source SHA-256: d9b286915611ddb38cff6767c6a8f81a1d48793013ed1e7e1b378c67366e3a61
+Lens SHA-256: 0ae11bc65fb590e6d7b23e3840258746910efd4da94e0e147014c28afbc9c26c
+
+73 core/integration tests passed, one CUDA test skipped.
+Eight public-demo checks passed after the final UI change.
+GitHub CI run 37580401319 passed on Python 3.10 and 3.12.
+Fresh noneditable public-wheel installation matched both variants through both adapters.
+Actual uv init/add/run in a new project verified version 1.1.0 and both registered names.
+Anonymous hosted scores: JLD 0.246233 and JLD-fast 0.213864; overlays returned.
+Anonymous browser button invocation returned JLD-fast 0.213864.
+Desktop and 390 px mobile browser checks passed; no horizontal overflow.
+Public lens and wheel downloads matched the validated local hashes.
+No new benchmark result or CUDA test coverage is claimed.
+
+Space: https://huggingface.co/spaces/shreshthsaini/JLD-demo
+Final app commit: 10f105c569cfe8a10b60e08f906f45f0dcd953fb
+HF paper API independently links the published model and Space.
+GitHub Pages includes the paper, fitted lens, and demo links.
+
+PyPI: not uploaded. Run 37580454484 publication rejected invalid-publisher.
+The user has been asked to configure the pending Trusted Publisher.
+HF authorship: token returned HTTP 403; browser-authenticated claim remains.
+Detailed logs/screenshots: /scratch/09032/saini_2/jld-adoption/.
+Scratch is temporary; retain this compact record and published artifacts.

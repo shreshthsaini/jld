@@ -32,12 +32,11 @@ ratings.
 ## Use with uv
 
 ```bash
-uv add "jacobian-lens-distance @ git+https://github.com/shreshthsaini/jld.git"
+uv add "jacobian-lens-distance @ https://github.com/shreshthsaini/jld/releases/download/v1.1.0/jacobian_lens_distance-1.1.0-py3-none-any.whl"
 ```
 
-This installs the official source and records the resolved commit in `uv.lock`.
-The project uses the distribution name `jacobian-lens-distance`; a PyPI
-release is being prepared.
+This installs the versioned release wheel and records it in `uv.lock`.
+The distribution is named `jacobian-lens-distance`; the Python import remains `jld`.
 
 ```python
 from jld import JLD

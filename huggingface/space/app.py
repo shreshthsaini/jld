@@ -146,8 +146,10 @@ def build_demo() -> gr.Blocks:
             f"[Read the paper]({PAPER}) · [Code and installation]({CODE}) · [Research website]({WEBSITE})"
         )
         with gr.Row():
-            reference = gr.Image(label="Reference image", type="filepath", sources=["upload"], height=280)
-            distorted = gr.Image(label="Distorted image", type="filepath", sources=["upload"], height=280)
+            reference = gr.Image(value=str(EXAMPLES / "parrots.png"), label="Reference image",
+                                 type="filepath", sources=["upload"], height=280)
+            distorted = gr.Image(value=str(EXAMPLES / "parrots_jpeg_q8.png"), label="Distorted image",
+                                 type="filepath", sources=["upload"], height=280)
         variant = gr.Radio(
             choices=[("JLD: lens + global CLS term", "full"), ("JLD-fast: lens term only", "fast")],
             value="fast", label="Variant",
@@ -160,7 +162,8 @@ def build_demo() -> gr.Blocks:
         )
         run = gr.Button("Compute distance and local map", variant="primary")
         with gr.Row():
-            distance = gr.Number(label="Distance (lower means more similar)", precision=6)
+            distance = gr.Number(value=None, label="Distance (lower means more similar)", precision=6,
+                                 placeholder="Compute a pair to see its distance", interactive=False)
             response = gr.Image(label="Local lens response overlay (excludes CLS)", type="pil", height=300)
         explanation = gr.Markdown()
         run.click(score_pair, [reference, distorted, variant], [distance, response, explanation],
