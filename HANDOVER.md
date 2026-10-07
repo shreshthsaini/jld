@@ -36,11 +36,44 @@ On 2026-10-07 the user removed PIQ from the integration plan. The two targets ar
 PyIQA and TorchMetrics. The PyIQA issue was still open with no comments when
 checked during the TorchMetrics proposal step.
 
-Next: check both maintainer responses and implement the agreed adapters, starting
-with PyIQA. Validate parity, batching, device moves, gradients, discovery for
-PyIQA, and update/compute/reset and distributed reductions for TorchMetrics.
-No adapter or new benchmark was produced in these proposal steps. No compute
-jobs were launched.
+## Adoption release, 7 Oct 2026
+
+Implemented author-maintained integrations in `jld/integrations/`: PyIQA
+`register()` plus `jld`/`jld_fast`, differentiable `JLDModule`, and
+TorchMetrics `JacobianLensDistance` with distributed sample-weighted mean.
+The original scorer is unchanged. PyIQA 0.1.16 requires explicit registration
+before `create_metric()` or `list_models()`.
+
+Renamed the Python distribution to `jacobian-lens-distance` and bumped to 1.1.0.
+The unrelated PyPI package `jld` belongs to another author. The Python import
+and CLI remain `jld`. README now uses uv and documents both optional adapters.
+Builds produce a roughly 663 KB wheel with the bundled lens and no website assets.
+GitHub Actions build, metadata checking, tests, and PyPI Trusted Publishing are
+configured in `.github/workflows/`.
+
+Validation on the existing Vista CPU workspace: 73 tests passed, one CUDA test
+skipped; eight Space tests passed. A fresh noneditable wheel install from outside
+the checkout verified entry points, full/fast scores through both integrations,
+and CLI map output. Two-process Gloo verifies unequal-rank sample weighting.
+No new benchmark or paper result was produced. No new compute jobs were launched.
+
+Hugging Face paper https://huggingface.co/papers/2610.05967 is indexed and was
+submitted to October 7 Daily Papers. The public model repository
+https://huggingface.co/shreshthsaini/JLD contains the unchanged fitted lens,
+configuration, MIT code/artifact license, and model card, and is linked from
+the paper automatically.
+
+The Gradio demo in `huggingface/space/` supports uploaded pairs, released example
+images, both variants, and local response overlays. Hosted CPU creation returned
+HTTP 402 because HF now requires PRO for CPU Gradio hosting. Free ZeroGPU creation
+succeeded for https://huggingface.co/spaces/shreshthsaini/JLD-demo. The app has
+been adapted to preload the shared encoder and use a short GPU scoring function.
+Remote deployment verification follows the versioned wheel upload.
+
+Two account steps need the user: configure the pending PyPI Trusted Publisher
+listed in `.agent/notes/pypi-publishing.txt`; claim authorship on the HF paper
+page, since the available token returned HTTP 403 for that account action.
+The working versioned wheel installation is independent of PyPI readiness.
 
 Submitted issue texts are preserved in `.agent/notes/pyiqa-proposal.txt` and
 `.agent/notes/torchmetrics-proposal.txt`.

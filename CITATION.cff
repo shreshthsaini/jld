@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the paper below."
 title: "JLD: Perceptual Distance through a Jacobian Lens"
 type: software
-version: 1.0.0
+version: 1.1.0
 license: MIT
 repository-code: "https://github.com/shreshthsaini/jld"
 url: "https://shreshthsaini.github.io/jld/"

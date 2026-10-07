@@ -1,0 +1,13 @@
+{
+  "method": "JLD",
+  "version": "1.1.0",
+  "encoder": "vit_small_patch14_dinov2.lvd142m",
+  "layer": 1,
+  "rank": 64,
+  "chroma_sigma": 2.0,
+  "full_cls_weight": 0.5,
+  "fast_cls_weight": 0.0,
+  "lens_sha256": "0ae11bc65fb590e6d7b23e3840258746910efd4da94e0e147014c28afbc9c26c",
+  "paper": "https://arxiv.org/abs/2610.05967",
+  "source": "https://github.com/shreshthsaini/jld"
+}

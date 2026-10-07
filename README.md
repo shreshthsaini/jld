@@ -5,6 +5,10 @@
 [![Code](https://img.shields.io/badge/GitHub-Code-24292F?style=flat-square&logo=github&logoColor=white)](https://github.com/shreshthsaini/jld)
 [![Blog](https://img.shields.io/badge/Read-Blog-6B6259?style=flat-square)](https://shreshthsaini.github.io/jld/blog/)
 
+[Try the demo](https://huggingface.co/spaces/shreshthsaini/JLD-demo) |
+[Fitted lens on Hugging Face](https://huggingface.co/shreshthsaini/JLD) |
+[HF Papers](https://huggingface.co/papers/2610.05967)
+
 Shreshth Saini, Balu Adsumilli, Alan C. Bovik
 
 JLD is a full-reference perceptual distance between two images, computed from a
@@ -21,10 +25,19 @@ to fit a new lens, reproduce the paper's correlation numbers, and measure cost.
 
 ## Install
 
+Add the versioned release to your project with uv:
+
+```bash
+uv add "jacobian-lens-distance @ https://github.com/shreshthsaini/jld/releases/download/v1.1.0/jacobian_lens_distance-1.1.0-py3-none-any.whl"
+```
+
+The distribution name is `jacobian-lens-distance`; the Python import is `jld`.
+For a source checkout, including the example images and evaluation scripts:
+
 ```bash
 git clone https://github.com/shreshthsaini/jld.git
 cd jld
-pip install -e .          # or: uv sync
+uv sync
 ```
 
 Python 3.10 or newer. The fitted lens ships inside the package. The DINOv2-S/14
@@ -64,16 +77,64 @@ term responds; it does not include the CLS term.
 The lens term is a pseudometric (it satisfies the triangle inequality). The full
 score adds a cosine term and need not satisfy it.
 
+## PyIQA and TorchMetrics
+
+These adapters are maintained in this repository. Upstream integration proposals
+are open in [PyIQA](https://github.com/chaofengc/IQA-PyTorch/issues/304) and
+[TorchMetrics](https://github.com/Lightning-AI/torchmetrics/issues/3561).
+
+From a source checkout, install the optional dependencies with
+`uv sync --extra pyiqa --extra torchmetrics`. To add both adapters to another
+project using the release wheel:
+
+```bash
+uv add "jacobian-lens-distance[pyiqa,torchmetrics] @ https://github.com/shreshthsaini/jld/releases/download/v1.1.0/jacobian_lens_distance-1.1.0-py3-none-any.whl"
+```
+
+PyIQA needs explicit registration before metric creation or model listing:
+
+```python
+import pyiqa
+from jld.integrations.pyiqa import register
+
+register()
+metric = pyiqa.create_metric("jld", device="cpu")  # or "jld_fast"
+scores = metric(distorted, reference)  # RGB [B, 3, H, W] in [0, 1]
+loss = pyiqa.create_metric("jld_fast", device="cpu", as_loss=True)
+```
+
+The plugin provides an architecture entry point, but PyIQA 0.1.16 checks its
+default configurations before loading that registry. Calling `register()`
+exposes the two names reliably. It is safe to call repeatedly.
+
+The TorchMetrics wrapper accumulates a mean over image pairs, with distributed
+sum/count synchronization and correct weighting for unequal batch sizes:
+
+```python
+from jld.integrations.torchmetrics import JacobianLensDistance
+
+metric = JacobianLensDistance(variant="fast").to(device)
+for distorted, reference in loader:
+    metric.update(distorted.to(device), reference.to(device))
+mean_distance = metric.compute()
+metric.reset()
+```
+
+`metric(distorted, reference)` returns the current batch mean and supports input
+gradients. For differentiable per-pair scores, use
+`from jld.integrations import JLDModule` and call `JLDModule(variant="fast")(reference, distorted)`.
+All adapters preserve native resolution and the released preprocessing.
+
 ## Command line
 
 ```bash
-jld examples/parrots.png examples/parrots_jpeg_q8.png                 # JLD (full) = 0.2462
-jld examples/parrots.png examples/parrots_jpeg_q8.png --variant fast  # JLD (fast) = 0.2139
-jld examples/bikes.png examples/bikes_blur.png --map blur_map.png     # also write the local map
-python scripts/demo.py                                                # rank the bundled example pairs
+uv run jld examples/parrots.png examples/parrots_jpeg_q8.png                 # JLD (full) = 0.2462
+uv run jld examples/parrots.png examples/parrots_jpeg_q8.png --variant fast  # JLD (fast) = 0.2139
+uv run jld examples/bikes.png examples/bikes_blur.png --map blur_map.png     # also write the local map
+uv run scripts/demo.py                                                # rank the bundled example pairs
 ```
 
-`python -m jld` is equivalent to `jld`. `--lens my_lens.npz` scores with a lens
+`uv run python -m jld` is equivalent to `jld`. `--lens my_lens.npz` scores with a lens
 you fitted yourself, and `--device cpu` forces the CPU. `examples/` holds three
 Kodak references and eight distorted versions; their scores for every variant
 are recorded in [examples/expected.json](examples/expected.json).
@@ -87,13 +148,13 @@ crops, and keeps the top eigenvectors.
 
 ```bash
 # the paper's lens: 100 DIV2K validation images (downloaded into data/div2k)
-python scripts/fit_lens.py --div2k data/div2k --out lens/refit.npz --compare shipped
+uv run scripts/fit_lens.py --div2k data/div2k --out lens/refit.npz --compare shipped
 
 # your own images
-python scripts/fit_lens.py --images path/to/images --out lens/mine.npz
+uv run scripts/fit_lens.py --images path/to/images --out lens/mine.npz
 
 # another timm ViT or another block
-python scripts/fit_lens.py --images path/to/images --encoder vit_base_patch14_dinov2.lvd142m \
+uv run scripts/fit_lens.py --images path/to/images --encoder vit_base_patch14_dinov2.lvd142m \
     --layer 1 --out lens/dinov2_b14_block1_k64.npz
 ```
 
@@ -115,10 +176,10 @@ TID2013, CSIQ, LIVE, KADID-10k and PIPAL, and prints the paper's numbers next to
 the measured ones.
 
 ```bash
-pip install -e ".[eval]"                       # pandas and scipy
-python scripts/evaluate.py --data-root data    # JLD and JLD-fast on the five datasets of the main table
-python scripts/evaluate.py --data-root data --datasets csiq live --limit 100   # quick check on a subset
-python scripts/evaluate.py --data-root data --metrics jld psnr ssim lpips_vgg dists   # with pyiqa baselines
+uv sync --extra eval                          # pandas and scipy
+uv run scripts/evaluate.py --data-root data    # JLD and JLD-fast on the five datasets of the main table
+uv run scripts/evaluate.py --data-root data --datasets csiq live --limit 100   # quick check on a subset
+uv run --extra baselines scripts/evaluate.py --data-root data --metrics jld psnr ssim lpips_vgg dists
 ```
 
 Datasets are looked up below `--data-root` and, if missing, downloaded from the
@@ -143,7 +204,7 @@ resizing. `kadid10k_test` is the 65 KADID-10k references (8,125 pairs) listed in
 references were used for development. `pipal_val` is the 1,000 pairs of the
 official PIPAL validation split. Correlations are absolute values. Per-pair
 scores are saved in `results/<dataset>_scores.csv` and reused on later runs. The
-baselines need `pip install -e ".[baselines]"`.
+baselines need `uv sync --extra baselines`.
 
 A GPU is recommended for the full run. On a 16-thread CPU, CSIQ and LIVE (1,645
 pairs) took about seven minutes for JLD and JLD-fast together.
@@ -154,10 +215,10 @@ pairs) took about seven minutes for JLD and JLD-fast together.
 median latency and peak GPU memory.
 
 ```bash
-python scripts/benchmark.py                                   # JLD and JLD-fast, 512 x 384 inputs
-python scripts/benchmark.py --height 768 --width 1024
-python scripts/benchmark.py --baselines psnr ssim lpips-vgg dists     # pyiqa metrics, same protocol
-python scripts/benchmark.py --device cpu --threads 12 --repeats 5 --warmup 2
+uv run scripts/benchmark.py                                   # JLD and JLD-fast, 512 x 384 inputs
+uv run scripts/benchmark.py --height 768 --width 1024
+uv run scripts/benchmark.py --baselines psnr ssim lpips-vgg dists     # pyiqa metrics, same protocol
+uv run scripts/benchmark.py --device cpu --threads 12 --repeats 5 --warmup 2
 ```
 
 The paper's cost columns use 512 x 384 inputs on an NVIDIA A100. FLOP counts
@@ -194,13 +255,13 @@ pre-filter. The lens itself is fitted
 without human data. The paper's table has more baselines, and JLD is not the
 best method on PIPAL validation.
 
-`python scripts/evaluate.py` reproduces the JLD and JLD-fast correlations in
+`uv run scripts/evaluate.py` reproduces the JLD and JLD-fast correlations in
 this table to three decimals on all five datasets with the shipped lens.
 
 ## Tests
 
 ```bash
-pip install -e ".[eval,test]"
+uv sync --extra eval --extra test --extra pyiqa --extra torchmetrics
 pytest
 ```
 

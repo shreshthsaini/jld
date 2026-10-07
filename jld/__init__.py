@@ -5,4 +5,4 @@ from jld.lens import Lens, fit_lens
 from jld.metric import JLD, VARIANTS
 
 __all__ = ["DEFAULT_ENCODER", "JLD", "Lens", "VARIANTS", "ViTEncoder", "fit_lens", "load_image", "load_pair"]
-__version__ = "1.0.0"
+__version__ = "1.1.0"

@@ -1,0 +1,11 @@
+include LICENSE CITATION.cff README.md
+recursive-include jld/data *.npz
+recursive-include tests *.py
+recursive-include examples *.png *.json *.py *.md
+recursive-include splits *.json
+recursive-include scripts *.py
+exclude HANDOVER.md
+prune .agent
+prune docs
+prune huggingface
+prune .github

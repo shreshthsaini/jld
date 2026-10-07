@@ -1,28 +1,32 @@
 ## Goal
-Introduce JLD into PyIQA and TorchMetrics, starting with integration proposals.
+Publish JLD with uv installation, HF paper/model/Space, and PyIQA/TorchMetrics integrations.
 
 ## Status and next action
-Proposals complete: PyIQA #304 and TorchMetrics #3561 are open and verified under shreshthsaini.
-NEXT: check both issues for maintainer guidance, then implement the agreed adapters.
+Validated: 73 tests pass, one CUDA skip, eight demo tests pass, clean installed-wheel smoke passes.
+HF paper indexed and Daily-submitted; model published; free ZeroGPU Space created.
+NEXT: publish GitHub v1.1.0 wheel, upload Space, verify hosted scoring and artifact links.
 
 ## Map
 | Note | Read it when |
 | --- | --- |
-| HANDOVER.md | Resuming evaluation-tool integration |
-| .agent/notes/pyiqa-proposal.txt | Reviewing the exact submitted issue text |
-| .agent/notes/torchmetrics-proposal.txt | Reviewing the TorchMetrics proposal |
+| HANDOVER.md | Resuming adoption release |
+| .agent/notes/pypi-publishing.txt | Configuring initial PyPI Trusted Publisher |
+| huggingface/DISSEMINATION.md | Reviewing HF paper actions and account steps |
+| huggingface/paper_receipt.json | Checking sanitized submission evidence |
+| .agent/notes/pyiqa-proposal.txt | Reviewing PyIQA issue #304 |
+| .agent/notes/torchmetrics-proposal.txt | Reviewing TorchMetrics issue #3561 |
 
 ## Decisions
-Propose both full and fast image distances with FR mode and lower-better scores.
-Preserve the official preprocessing and differentiable tensor API in an adapter.
-Ask about DEFAULT_CONFIGS discovery because architecture entry points alone appear insufficient.
-Keep paper-list outreach separate from executable metric integration.
-Target PyIQA and TorchMetrics only; the user removed PIQ on 2026-10-07.
-Use summed per-pair scores and counts for a sample-weighted distributed mean.
+Use distribution jacobian-lens-distance; retain Python import and CLI jld.
+Target PyIQA and TorchMetrics only; user removed PIQ.
+PyIQA requires explicit register() due factory validation order.
+Keep core scoring unchanged; adapter encoder is a child module and lens a buffer.
+TorchMetrics uses per-pair sums/counts for sample-weighted distributed mean.
+Use free HF ZeroGPU after CPU hosting returned402 PRO requirement.
+Release wheel provides uv installation while PyPI publisher is configured.
 
 ## Open questions
-Do PyIQA maintainers prefer a plugin or upstream PR?
-What is their recommended external default-configuration registration path?
-Do TorchMetrics maintainers prefer a native implementation or optional package dependency?
-Should the TorchMetrics contribution include both module and functional interfaces?
-No adapter or new benchmark was run; no compute jobs are in flight.
+User must configure pending PyPI publisher; asynchronous request has exact values.
+HF authorship claim requires user browser authentication (token returned403).
+Hosted ZeroGPU scoring and GitHub CI still need verification.
+No new compute allocation; completed test processes exited.
