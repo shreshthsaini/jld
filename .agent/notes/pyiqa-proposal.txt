@@ -1,0 +1,35 @@
+I am an author of [JLD: Perceptual Distance Through A Jacobian Lens](https://arxiv.org/abs/2610.05967), an October 2026 arXiv preprint. Would you be open to adding JLD and JLD-fast as full-reference perceptual distances in PyIQA? I can contribute the adapter, tests, and documentation, and maintain an external plugin if that is the preferred starting point.
+
+- Official implementation: https://github.com/shreshthsaini/jld
+- Project page: https://shreshthsaini.github.io/jld/
+- Related paper-list contribution: https://github.com/chaofengc/Awesome-Image-Quality-Assessment/pull/48
+
+This proposal covers executable metric support through PyIQA's API, CLI, and benchmarking tools. The related contribution adds the paper to the reading list.
+
+### Proposed interface
+
+Register `jld` and `jld_fast` with `metric_mode='FR'` and `lower_better=True`. The intended usage after integration is:
+
+```python
+metric = pyiqa.create_metric('jld', device='cuda')
+scores = metric(distorted, reference)  # one distance per image pair
+fast = pyiqa.create_metric('jld_fast', device='cuda')
+```
+
+Both variants use a frozen DINOv2-S/14 encoder and a shipped 64-direction lens fitted once from unlabeled images. JLD compares projected block-1 patch features and adds a final-CLS cosine term; JLD-fast stops after block 1. Both apply the released chroma pre-filter. Scoring requires forward passes only, with no Jacobian computation or lens fitting at runtime.
+
+The adapter would preserve the official protocol: RGB tensors in `[0, 1]`, aligned image pairs of the same size, native resolution, and a center crop to multiples of 14 without resizing. Scores are nonnegative distances with no fixed upper bound. The model card would document these constraints, the backbone download, and the lens provenance. The lens term is a pseudometric; the full score need not satisfy the triangle inequality.
+
+### Implementation and validation
+
+For an upstream contribution, I would follow your [new-model checklist](https://github.com/chaofengc/IQA-PyTorch/blob/main/docs/Instruction.md): architecture registration, default configurations, model card, asset handling, and README updates. The official metric source and shipped lens are MIT-licensed; backbone weights would retain their original terms.
+
+The adapter would return per-pair scores on the selected device and use the differentiable tensor API when `as_loss=True`. The official convenience call uses inference mode and returns CPU scores, so wrapping that call directly would lose gradients and device behavior. Encoder parameters would remain frozen, and the projection would be a registered buffer for device moves.
+
+Before a PR or plugin release, I would validate numerical agreement with the official implementation on the bundled examples, batching, identity and symmetry, CPU/CUDA behavior, and finite input gradients on nonidentical pairs. I would also check CLI/benchmark discovery and report SRCC, raw PLCC, and KRCC under PyIQA's protocol, recording development versus held-out splits and any differences from the paper's evaluation. No adapter or PyIQA benchmark has been run yet.
+
+### Preferred contribution path
+
+Your README documents experimental external plugins. On current `main`, `create_metric()` and `list_models()` use `DEFAULT_CONFIGS`, so architecture entry-point registration alone appears insufficient to expose a new metric name. Is there a recommended way for an external plugin to register its default configurations and become discoverable through the API, CLI, and benchmark scripts?
+
+Would you prefer an independently maintained plugin first, or a direct upstream PR for these two image metrics?
