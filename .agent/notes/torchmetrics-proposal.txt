@@ -1,0 +1,41 @@
+## Feature
+
+Add Jacobian Lens Distance (JLD) and JLD-fast to the image perceptual metrics, with a `torchmetrics.Metric` interface and, if appropriate, a functional counterpart. I am an author of [JLD: Perceptual Distance Through A Jacobian Lens](https://arxiv.org/abs/2610.05967), an October 2026 arXiv preprint, and can contribute the implementation, tests, and documentation.
+
+- Official implementation: https://github.com/shreshthsaini/jld
+- Project page: https://shreshthsaini.github.io/jld/
+
+### Motivation
+
+JLD is a full-reference distance for comparing an image against an aligned reference in compression, restoration, and image generation evaluation. A TorchMetrics interface would let users accumulate scores across batches, synchronize results across devices, and use JLD alongside existing image metrics in PyTorch and Lightning evaluation loops.
+
+Both variants use a frozen DINOv2-S/14 encoder and a fixed 64-direction lens fitted once from unlabeled images. JLD compares projected block-1 patch features and adds a final-CLS cosine term. JLD-fast stops after block 1. Both use the released chroma pre-filter. Evaluation requires forward passes only; no lens fitting or Jacobian computation happens during scoring.
+
+### Pitch
+
+Proposed API, subject to maintainer guidance:
+
+```python
+from torchmetrics.image import JacobianLensDistance
+
+metric = JacobianLensDistance(variant="full", reduction="mean").to(device)
+metric.update(preds, target)
+dataset_distance = metric.compute()
+metric.reset()
+```
+
+`variant="fast"` would select JLD-fast, and `higher_is_better=False` would express score direction. Inputs would be RGB float tensors `[N, 3, H, W]` in `[0, 1]`, with equal image sizes and at least one 14-by-14 patch. The adapter would preserve native resolution, center cropping to multiples of 14, and the official preprocessing. Scores are nonnegative with no fixed upper bound.
+
+For mean reduction, I propose sum-of-per-pair-distances and pair-count states, both reduced with distributed sums, so unequal batch sizes and unequal numbers of samples across ranks are weighted correctly. Sum and per-pair reductions could follow existing image-metric conventions. The frozen encoder would be a child module and the lens a registered buffer, with model loading once per metric instance.
+
+The adapter would use the official differentiable tensor path, rather than the convenience call that enters inference mode and returns CPU scores. Before a PR, I would test parity with the released example scores, full/fast selection, identity and symmetry, unequal batches, update/compute/reset, device moves, distributed reduction, and finite input gradients on nonidentical pairs. No TorchMetrics adapter or new benchmark has been run yet.
+
+### Alternatives
+
+I can maintain a TorchMetrics-compatible wrapper in the official JLD repository if an external integration is preferred initially. There is also a separate [PyIQA integration proposal](https://github.com/chaofengc/IQA-PyTorch/issues/304), covering its metric registry, CLI, and benchmarking workflow.
+
+### Additional context
+
+The released JLD source and fitted lens are MIT-licensed. The implementation uses PyTorch, timm, and pretrained DINOv2 weights; backbone provenance, download/cache behavior, and original weight terms would be documented.
+
+Would you welcome an upstream contribution for these two variants? Do you prefer a native implementation or an optional dependency on the author-maintained package, and should the first contribution include both module and functional interfaces?

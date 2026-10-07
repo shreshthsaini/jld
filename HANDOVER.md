@@ -23,10 +23,24 @@ The issue explicitly distinguishes executable metric support from the existing
 paper-list contribution at
 https://github.com/chaofengc/Awesome-Image-Quality-Assessment/pull/48.
 
-Next: check the maintainer response, then implement the agreed PyIQA adapter and
-validate parity, batching, device moves, gradients, and API/CLI/benchmark discovery.
-PIQ and a TorchMetrics-compatible wrapper follow PyIQA. No adapter, new benchmark,
-PIQ submission, or TorchMetrics wrapper was produced in this proposal step.
-No compute jobs were launched.
+Opened and verified https://github.com/Lightning-AI/torchmetrics/issues/3561 under
+`shreshthsaini`: "Integration proposal: JLD and JLD-fast image perceptual distances".
+The proposal follows TorchMetrics' feature-request structure and covers a
+`JacobianLensDistance` module, full/fast variants, sample-weighted distributed
+accumulation, registered encoder/lens state, and validation. It asks whether
+maintainers prefer a native implementation or an optional package dependency,
+and whether to include a functional interface. An author-maintained compatible
+wrapper is offered as an initial alternative.
 
-The submitted issue text is preserved in `.agent/notes/pyiqa-proposal.txt`.
+On 2026-10-07 the user removed PIQ from the integration plan. The two targets are
+PyIQA and TorchMetrics. The PyIQA issue was still open with no comments when
+checked during the TorchMetrics proposal step.
+
+Next: check both maintainer responses and implement the agreed adapters, starting
+with PyIQA. Validate parity, batching, device moves, gradients, discovery for
+PyIQA, and update/compute/reset and distributed reductions for TorchMetrics.
+No adapter or new benchmark was produced in these proposal steps. No compute
+jobs were launched.
+
+Submitted issue texts are preserved in `.agent/notes/pyiqa-proposal.txt` and
+`.agent/notes/torchmetrics-proposal.txt`.
