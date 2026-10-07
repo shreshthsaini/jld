@@ -8,6 +8,12 @@ dist/
 .DS_Store
 uv.lock
 
+# Local continuity notes and publication bookkeeping
+/HANDOVER.md
+/.agent/
+/huggingface/DISSEMINATION.md
+/huggingface/*receipt.json
+
 # Local datasets, evaluation outputs and refitted lenses
 /data/
 /results/

@@ -25,10 +25,16 @@ Upload an aligned reference/distorted pair, select JLD or JLD-fast, and obtain
 a scalar distance plus a local lens response overlay. Lower means more similar.
 The overlay excludes the global CLS term and is normalized separately for each pair.
 
-Both images must have the same native size. The demo converts to RGB and
-center-crops to multiples of 14 pixels without resizing. Public demo resource
-limits are 262,144 pixels, a longest side of 1024 pixels, and 10 MB per image.
-Use the local package for larger images. The pretrained encoder loads on hosted
+Both images must be aligned and have the same size. Uploads may be up to
+24 megapixels, 8192 pixels on the longest side, and 10 MB each. By default,
+large pairs are reduced together with the same Lanczos filter to fit the
+hosted scoring limit of 262,144 pixels and a longest side of 1024 pixels.
+The result reports the original, resized, and scored dimensions. This score
+is for the resized pair. Disable **Resize large pairs for this demo** to
+require native resolution; large pairs then receive an explanatory error.
+Small pairs keep their native pixels. RGB conversion and a center crop to
+multiples of 14 pixels follow the official scorer. Use the local package for
+native-resolution scoring of larger images. The pretrained encoder loads on hosted
 startup, while the fitted lens is included in the package. The hosted Space uses
 free shared ZeroGPU access; queueing and daily usage limits may apply.
 
